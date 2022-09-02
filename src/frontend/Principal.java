@@ -193,32 +193,40 @@ public class Principal extends javax.swing.JFrame {
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
         
-        dialogoChooser.showSaveDialog(this);
-        File archivo = dialogoChooser.getSelectedFile();
-        if(!archivo.exists()){
-            editor = new Editor(archivo);
-            tpnFuentes.addTab(archivo.getName(), editor);
-            tpnFuentes.setSelectedComponent(editor);
-        }else{
-            JOptionPane.showMessageDialog(this, "No se pudo crear el archivo");
-        }
+        try{
+            int response = dialogoChooser.showSaveDialog(this);
+            if(response==dialogoChooser.APPROVE_OPTION){
+                File archivo = dialogoChooser.getSelectedFile();
+                if(archivo !=null){
+                    if(!archivo.exists()){
+                        editor = new Editor(archivo);
+                        tpnFuentes.addTab(archivo.getName(), editor);
+                        tpnFuentes.setSelectedComponent(editor);
+                }else{
+                    JOptionPane.showMessageDialog(this, "No se pudo crear el archivo");
+                    }
+                }
+            }
 
+        }catch(Error e){}
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btnAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirActionPerformed
-        dialogoChooser.showOpenDialog(this);
-        File archivo = dialogoChooser.getSelectedFile();
-        if(!archivo.exists()){
-            JOptionPane.showMessageDialog(this, "No se puede abrir el archivo");
-        }else{
-            editor = new Editor(archivo);
-            try {
-                editor.leerArchivo(archivo);
-            } catch (IOException ex) {
-                Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        int response =dialogoChooser.showOpenDialog(this);
+        if(response == dialogoChooser.APPROVE_OPTION){ 
+            File archivo = dialogoChooser.getSelectedFile();
+            if(!archivo.exists()){
+                JOptionPane.showMessageDialog(this, "No se puede abrir el archivo");
+            }else{
+                editor = new Editor(archivo);
+                try {
+                    editor.leerArchivo(archivo);
+                }catch (IOException ex) {
+                    Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                tpnFuentes.addTab(archivo.getName(), editor);
+                tpnFuentes.setSelectedComponent(editor);
             }
-            tpnFuentes.addTab(archivo.getName(), editor);
-            tpnFuentes.setSelectedComponent(editor);
         }
     }//GEN-LAST:event_btnAbrirActionPerformed
 
