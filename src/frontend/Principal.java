@@ -15,7 +15,9 @@ import javax.swing.JOptionPane;
  * @author Bryan.Ramos
  */
 public class Principal extends javax.swing.JFrame {
+
     private Editor editor;
+
     /**
      * Creates new form Principal
      */
@@ -93,6 +95,11 @@ public class Principal extends javax.swing.JFrame {
         btnGComo.setFocusable(false);
         btnGComo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnGComo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnGComo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGComoActionPerformed(evt);
+            }
+        });
         jToolBar1.add(btnGComo);
 
         btnGTodo.setText("Guardar todo");
@@ -182,61 +189,74 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void itmMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmMenuActionPerformed
-        
+
         dialogoChooser.showSaveDialog(this);
         File archivo = dialogoChooser.getSelectedFile();
         editor = new Editor(archivo);
         tpnFuentes.addTab(archivo.getName(), editor);
         tpnFuentes.setSelectedComponent(editor);
-        
+
     }//GEN-LAST:event_itmMenuActionPerformed
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-        
-        try{
+
+        try {
             int response = dialogoChooser.showSaveDialog(this);
-            if(response==dialogoChooser.APPROVE_OPTION){
+            if (response == dialogoChooser.APPROVE_OPTION) {
                 File archivo = dialogoChooser.getSelectedFile();
-                if(archivo !=null){
-                    if(!archivo.exists()){
+                if (archivo != null) {
+                    if (!archivo.exists()) {
                         editor = new Editor(archivo);
                         tpnFuentes.addTab(archivo.getName(), editor);
                         tpnFuentes.setSelectedComponent(editor);
-                }else{
-                    JOptionPane.showMessageDialog(this, "No se pudo crear el archivo");
+                    } else {
+                        JOptionPane.showMessageDialog(this, "No se pudo crear el archivo");
                     }
                 }
             }
 
-        }catch(Error e){}
+        } catch (Error e) {
+        }
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btnAbrirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrirActionPerformed
-        int response =dialogoChooser.showOpenDialog(this);
-        if(response == dialogoChooser.APPROVE_OPTION){ 
+        int response = dialogoChooser.showOpenDialog(this);
+        if (response == dialogoChooser.APPROVE_OPTION) {
             File archivo = dialogoChooser.getSelectedFile();
-            if(!archivo.exists()){
-                JOptionPane.showMessageDialog(this, "No se puede abrir el archivo");
-            }else{
+            boolean opened = false;
+            for (int i = 0; i < tpnFuentes.getComponentCount(); i++) {
+                Editor editor = (Editor) tpnFuentes.getComponentAt(i);
+                if (editor.getArchivo().getPath() == archivo.getPath()) {
+                    opened = true;
+                }
+            }
+            if (archivo.exists() && opened == false) {
+                System.out.println(opened);
                 editor = new Editor(archivo);
                 try {
-                    editor.leerArchivo(archivo);
-                }catch (IOException ex) {
+                    editor.leerArchivo();
+                } catch (IOException ex) {
                     Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 tpnFuentes.addTab(archivo.getName(), editor);
                 tpnFuentes.setSelectedComponent(editor);
+            } else {
+                JOptionPane.showMessageDialog(this, "No se puede abrir el archivo");
+
             }
+
         }
     }//GEN-LAST:event_btnAbrirActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        
+
         editor = (Editor) tpnFuentes.getSelectedComponent();
-        try {
-            editor.guardar();
-        } catch (IOException ex) {
-            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        if (editor != null) {
+            try {
+                editor.guardar();
+            } catch (IOException ex) {
+                Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
@@ -253,17 +273,90 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGTodoActionPerformed
 
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
-        
-        tpnFuentes.remove(tpnFuentes.getSelectedComponent());
+
+        editor = (Editor) tpnFuentes.getSelectedComponent();
+        if (editor != null) {
+            closeAndLoad(editor);
+            tpnFuentes.remove(tpnFuentes.getSelectedComponent());
+        }
+
+
     }//GEN-LAST:event_btnCerrarActionPerformed
 
     private void btnCTodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCTodoActionPerformed
         // TODO add your handling code here:
-        while(tpnFuentes.getComponentCount()>0){
+        while (tpnFuentes.getComponentCount() > 0) {
+            editor = (Editor) tpnFuentes.getComponentAt(0);
+            closeAndLoad(editor);
             tpnFuentes.remove(tpnFuentes.getSelectedComponent());
 
         }
     }//GEN-LAST:event_btnCTodoActionPerformed
+
+    private void btnGComoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGComoActionPerformed
+
+        int response = dialogoChooser.showSaveDialog(this);
+        if (response == dialogoChooser.APPROVE_OPTION) {
+            File archivo = dialogoChooser.getSelectedFile();
+            if (!archivo.exists()) {
+                load(archivo, false);
+            } else {
+                String[] options = {"Si", "No"};
+                int x = JOptionPane.showOptionDialog(this, "Si acepta, se soobrescribira el archivo",
+                        "¿Desea reemplazar el archivo " + archivo.getName() + "?",
+                        JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
+                switch (x) {
+                    case 0:
+                        load(archivo, true);
+                        break;
+                    case 1:
+                    default:
+                        break;
+                }
+
+            }
+
+        }
+
+    }//GEN-LAST:event_btnGComoActionPerformed
+    public void load(File archivo, boolean remove) {
+        editor = (Editor) tpnFuentes.getSelectedComponent();
+        String information = editor.getText();
+        editor = new Editor(archivo);
+        editor.setearTexto(information);
+        try {
+            editor.guardar();
+        } catch (IOException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if (remove == true) {
+            tpnFuentes.remove(tpnFuentes.getSelectedComponent());
+        }
+        tpnFuentes.add(editor.getArchivo().getName(), editor);
+        tpnFuentes.setSelectedComponent(editor);
+    }
+
+    public void closeAndLoad(Editor editor) {
+        File archivo = editor.getArchivo();
+        String[] options = {"Si", "No"};
+        int x = JOptionPane.showOptionDialog(this, "Si no lo guarda, se perderan los cambios",
+                "¿Desea guardar el archivo " + archivo.getName() + "?",
+                JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
+        System.out.println(x);
+        switch (x) {
+            case 0: {
+                try {
+                    editor.guardar();
+                } catch (IOException ex) {
+                    Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            case 1:
+                break;
+            default:
+                System.out.println("Ocurrio algo jaja alchile");
+        }
+    }
 
     /**
      * @param args the command line arguments
