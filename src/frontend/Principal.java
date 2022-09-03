@@ -47,14 +47,19 @@ public class Principal extends javax.swing.JFrame {
         jSplitPane1 = new javax.swing.JSplitPane();
         tpnFuentes = new javax.swing.JTabbedPane();
         tpnSalidas = new javax.swing.JTabbedPane();
-        jPanel2 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         itmMenu = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setTitle("Compilatron");
+        setPreferredSize(new java.awt.Dimension(1000, 1000));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jToolBar1.setRollover(true);
 
@@ -125,7 +130,6 @@ public class Principal extends javax.swing.JFrame {
         jToolBar1.add(btnCerrar);
 
         btnCTodo.setText("Cerrar todo");
-        btnCTodo.setFocusable(false);
         btnCTodo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnCTodo.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         btnCTodo.addActionListener(new java.awt.event.ActionListener() {
@@ -137,32 +141,13 @@ public class Principal extends javax.swing.JFrame {
 
         getContentPane().add(jToolBar1, java.awt.BorderLayout.PAGE_START);
 
+        jSplitPane1.setDividerLocation(200);
+        jSplitPane1.setDividerSize(1);
         jSplitPane1.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
+        jSplitPane1.setPreferredSize(new java.awt.Dimension(300, 600));
+
+        tpnFuentes.setPreferredSize(new java.awt.Dimension(300, 600));
         jSplitPane1.setLeftComponent(tpnFuentes);
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 648, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addGap(0, 124, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 124, Short.MAX_VALUE)))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 645, Short.MAX_VALUE)
-            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-
-        tpnSalidas.addTab("tab2", jPanel2);
-
         jSplitPane1.setRightComponent(tpnSalidas);
 
         getContentPane().add(jSplitPane1, java.awt.BorderLayout.CENTER);
@@ -210,7 +195,20 @@ public class Principal extends javax.swing.JFrame {
                         tpnFuentes.addTab(archivo.getName(), editor);
                         tpnFuentes.setSelectedComponent(editor);
                     } else {
-                        JOptionPane.showMessageDialog(this, "No se pudo crear el archivo");
+                        String[] options = {"Si", "No"};
+                        int x = JOptionPane.showOptionDialog(this, "Si acepta, se soobrescribira el archivo y perdera la informacion contenida en el archivo",
+                                "¿Desea reemplazar el archivo " + archivo.getName() + "?",
+                                JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
+                        switch (x) {
+                            case 0:
+                                editor = new Editor(archivo);
+                                tpnFuentes.addTab(archivo.getName(), editor);
+                                tpnFuentes.setSelectedComponent(editor);
+                                break;
+                            case 1:
+                            default:
+                                break;
+                        }
                     }
                 }
             }
@@ -226,12 +224,14 @@ public class Principal extends javax.swing.JFrame {
             boolean opened = false;
             for (int i = 0; i < tpnFuentes.getComponentCount(); i++) {
                 Editor editor = (Editor) tpnFuentes.getComponentAt(i);
-                if (editor.getArchivo().getPath() == archivo.getPath()) {
+                System.out.println(editor.getArchivo().getPath() + "\n" + archivo.getPath());
+                String comparation1 = editor.getArchivo().getPath();
+                String comparation2 = archivo.getPath();
+                if (comparation2.equals(comparation1)) {
                     opened = true;
                 }
             }
             if (archivo.exists() && opened == false) {
-                System.out.println(opened);
                 editor = new Editor(archivo);
                 try {
                     editor.leerArchivo();
@@ -262,14 +262,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void btnGTodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGTodoActionPerformed
         // TODO add your handling code here:
-        for (int i = 0; i < tpnFuentes.getComponentCount(); i++) {
-            editor = (Editor) tpnFuentes.getComponentAt(i);
-            try {
-                editor.guardar();
-            } catch (IOException ex) {
-                Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
+        saveAll();
     }//GEN-LAST:event_btnGTodoActionPerformed
 
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
@@ -294,31 +287,57 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCTodoActionPerformed
 
     private void btnGComoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGComoActionPerformed
+        if (tpnFuentes.getSelectedComponent() != null) {
+            int response = dialogoChooser.showSaveDialog(this);
+            if (response == dialogoChooser.APPROVE_OPTION) {
+                File archivo = dialogoChooser.getSelectedFile();
+                if (!archivo.exists()) {
+                    load(archivo, false);
+                } else {
+                    String[] options = {"Si", "No"};
+                    int x = JOptionPane.showOptionDialog(this, "Si acepta, se soobrescribira el archivo y perdera la informacion contenida en el archivo",
+                            "¿Desea reemplazar el archivo " + archivo.getName() + "?",
+                            JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
+                    switch (x) {
+                        case 0:
+                            load(archivo, true);
+                            break;
+                        case 1:
+                        default:
+                            break;
+                    }
 
-        int response = dialogoChooser.showSaveDialog(this);
-        if (response == dialogoChooser.APPROVE_OPTION) {
-            File archivo = dialogoChooser.getSelectedFile();
-            if (!archivo.exists()) {
-                load(archivo, false);
-            } else {
-                String[] options = {"Si", "No"};
-                int x = JOptionPane.showOptionDialog(this, "Si acepta, se soobrescribira el archivo",
-                        "¿Desea reemplazar el archivo " + archivo.getName() + "?",
-                        JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
-                switch (x) {
-                    case 0:
-                        load(archivo, true);
-                        break;
-                    case 1:
-                    default:
-                        break;
                 }
 
             }
-
         }
 
+
     }//GEN-LAST:event_btnGComoActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        // TODO add your handling code here:
+        if(tpnFuentes.getSelectedComponent()==null){
+            System.exit(0);
+        }
+        String[] options = {"Si", "No", "Cancelar"};
+        int x = JOptionPane.showOptionDialog(this, "¿Desea guardar antes de salir?",
+                "Se cerrara el editor",
+                JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
+        switch (x) {
+            case 0:
+                saveAll();
+                System.exit(0);
+                break;
+            case 1:
+                System.exit(0);
+                break;
+            case 2:
+                break;
+            default:
+                break;
+        }
+    }//GEN-LAST:event_formWindowClosing
     public void load(File archivo, boolean remove) {
         editor = (Editor) tpnFuentes.getSelectedComponent();
         String information = editor.getText();
@@ -355,6 +374,17 @@ public class Principal extends javax.swing.JFrame {
                 break;
             default:
                 System.out.println("Ocurrio algo jaja alchile");
+        }
+    }
+
+    public void saveAll() {
+        for (int i = 0; i < tpnFuentes.getComponentCount(); i++) {
+            editor = (Editor) tpnFuentes.getComponentAt(i);
+            try {
+                editor.guardar();
+            } catch (IOException ex) {
+                Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 
@@ -406,8 +436,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem itmMenu;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JToolBar jToolBar1;
