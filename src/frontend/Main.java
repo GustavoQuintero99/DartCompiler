@@ -59,7 +59,6 @@ public class Main extends javax.swing.JFrame {
                 formWindowClosing(evt);
             }
         });
-        getContentPane().setLayout(new java.awt.BorderLayout());
 
         jSplitPane1.setDividerLocation(200);
         jSplitPane1.setDividerSize(1);
