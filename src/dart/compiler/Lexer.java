@@ -3,11 +3,11 @@
 // source: JFlexDart.jflex
 
 /* JFlex example: partial Java language lexer specification */
-import com.sun.java_cup.internal.runtime.Symbol;
 import java_cup.runtime.*;
 import dart.compiler.DartReservedWords;
 import dart.compiler.DartOperators;
 import dart.compiler.DartBuiltInWords;
+import java_cup.sym;
 /**
  * Dart Lexer
  */
@@ -858,27 +858,27 @@ class Lexer implements java_cup.runtime.Scanner {
             // fall through
           case 83: break;
           case 2:
-            { return symbol(DartOperators.RESID);
+            { return symbol(DartOperators.RESID.value);
             }
             // fall through
           case 84: break;
           case 3:
-            { return symbol(DartOperators.POW);
+            { return symbol(DartOperators.POW.value);
             }
             // fall through
           case 85: break;
           case 4:
-            { return symbol(DartOperators.PLUS);
+            { return symbol(DartOperators.PLUS.value);
             }
             // fall through
           case 86: break;
           case 5:
-            { return symbol(DartOperators.MINUS);
+            { return symbol(DartOperators.MINUS.value);
             }
             // fall through
           case 87: break;
           case 6:
-            { return symbol(DartOperators.EQ);
+            { return symbol(DartOperators.EQ.value);
             }
             // fall through
           case 88: break;
@@ -889,7 +889,7 @@ class Lexer implements java_cup.runtime.Scanner {
           case 89: break;
           case 8:
             { yybegin(YYINITIAL); 
-                                   return symbol(sym.STRING_LITERAL, 
+                                   return symbol(DartOperators.STRINGLITERAL.value, 
                                    string.toString());
             }
             // fall through
@@ -900,72 +900,72 @@ class Lexer implements java_cup.runtime.Scanner {
             // fall through
           case 91: break;
           case 10:
-            { return symbol(DartOperators.AND);
+            { return symbol(DartOperators.AND.value);
             }
             // fall through
           case 92: break;
           case 11:
-            { return symbol(DartOperators.POWPOW);
+            { return symbol(DartOperators.POWPOW.value);
             }
             // fall through
           case 93: break;
           case 12:
-            { return symbol(DartOperators.PLUSPLUS);
+            { return symbol(DartOperators.PLUSPLUS.value);
             }
             // fall through
           case 94: break;
           case 13:
-            { return symbol(DartOperators.PLUSEQ);
+            { return symbol(DartOperators.PLUSEQ.value);
             }
             // fall through
           case 95: break;
           case 14:
-            { return symbol(DartOperators.MINUSMINUS);
+            { return symbol(DartOperators.MINUSMINUS.value);
             }
             // fall through
           case 96: break;
           case 15:
-            { return symbol(DartOperators.MINUSEQ);
+            { return symbol(DartOperators.MINUSEQ.value);
             }
             // fall through
           case 97: break;
           case 16:
-            { return symbol(DartOperators.EQEQ);
+            { return symbol(DartOperators.EQEQ.value);
             }
             // fall through
           case 98: break;
           case 17:
-            { return symbol(DartBuiltInWords.AS);
+            { return symbol(DartBuiltInWords.AS.value);
             }
             // fall through
           case 99: break;
           case 18:
-            { return symbol(DartReservedWords.DO);
+            { return symbol(DartReservedWords.DO.value);
             }
             // fall through
           case 100: break;
           case 19:
-            { return symbol(DartReservedWords.IF);
+            { return symbol(DartReservedWords.IF.value);
             }
             // fall through
           case 101: break;
           case 20:
-            { return symbol(DartReservedWords.IN);
+            { return symbol(DartReservedWords.IN.value);
             }
             // fall through
           case 102: break;
           case 21:
-            { return symbol(DartReservedWords.IS);
+            { return symbol(DartReservedWords.IS.value);
             }
             // fall through
           case 103: break;
           case 22:
-            { return symbol(DartReservedWords.ON);
+            { return symbol(DartReservedWords.ON.value);
             }
             // fall through
           case 104: break;
           case 23:
-            { return symbol(DartOperators.OR);
+            { return symbol(DartOperators.OR.value);
             }
             // fall through
           case 105: break;
@@ -990,277 +990,277 @@ class Lexer implements java_cup.runtime.Scanner {
             // fall through
           case 109: break;
           case 28:
-            { return symbol(DartReservedWords.FOR);
+            { return symbol(DartReservedWords.FOR.value);
             }
             // fall through
           case 110: break;
           case 29:
-            { return symbol(DartBuiltInWords.GET);
+            { return symbol(DartBuiltInWords.GET.value);
             }
             // fall through
           case 111: break;
           case 30:
-            { return symbol(DartReservedWords.NEW);
+            { return symbol(DartReservedWords.NEW.value);
             }
             // fall through
           case 112: break;
           case 31:
-            { return symbol(DartBuiltInWords.SET);
+            { return symbol(DartBuiltInWords.SET.value);
             }
             // fall through
           case 113: break;
           case 32:
-            { return symbol(DartReservedWords.TRY);
+            { return symbol(DartReservedWords.TRY.value);
             }
             // fall through
           case 114: break;
           case 33:
-            { return symbol(DartReservedWords.VAR);
+            { return symbol(DartReservedWords.VAR.value);
             }
             // fall through
           case 115: break;
           case 34:
-            { return symbol(DartReservedWords.CASE);
+            { return symbol(DartReservedWords.CASE.value);
             }
             // fall through
           case 116: break;
           case 35:
-            { return symbol(DartReservedWords.ELSE);
+            { return symbol(DartReservedWords.ELSE.value);
             }
             // fall through
           case 117: break;
           case 36:
-            { return symbol(DartReservedWords.ENUM);
+            { return symbol(DartReservedWords.ENUM.value);
             }
             // fall through
           case 118: break;
           case 37:
-            { return symbol(DartReservedWords.HIDE);
+            { return symbol(DartReservedWords.HIDE.value);
             }
             // fall through
           case 119: break;
           case 38:
-            { return symbol(DartReservedWords.NULL);
+            { return symbol(DartReservedWords.NULL.value);
             }
             // fall through
           case 120: break;
           case 39:
-            { return symbol(DartBuiltInWords.PART);
+            { return symbol(DartBuiltInWords.PART.value);
             }
             // fall through
           case 121: break;
           case 40:
-            { return symbol(DartReservedWords.SHOW);
+            { return symbol(DartReservedWords.SHOW.value);
             }
             // fall through
           case 122: break;
           case 41:
-            { return symbol(DartReservedWords.SYNC);
+            { return symbol(DartReservedWords.SYNC.value);
             }
             // fall through
           case 123: break;
           case 42:
-            { return symbol(DartReservedWords.THIS);
+            { return symbol(DartReservedWords.THIS.value);
             }
             // fall through
           case 124: break;
           case 43:
-            { return symbol(DartReservedWords.TRUE);
+            { return symbol(DartReservedWords.TRUE.value);
             }
             // fall through
           case 125: break;
           case 44:
-            { return symbol(DartReservedWords.VOID);
+            { return symbol(DartReservedWords.VOID.value);
             }
             // fall through
           case 126: break;
           case 45:
-            { return symbol(DartReservedWords.WITH);
+            { return symbol(DartReservedWords.WITH.value);
             }
             // fall through
           case 127: break;
           case 46:
-            { return symbol(DartReservedWords.ASYNC);
+            { return symbol(DartReservedWords.ASYNC.value);
             }
             // fall through
           case 128: break;
           case 47:
-            { return symbol(DartReservedWords.AWAIT);
+            { return symbol(DartReservedWords.AWAIT.value);
             }
             // fall through
           case 129: break;
           case 48:
-            { return symbol(DartReservedWords.BREAK);
+            { return symbol(DartReservedWords.BREAK.value);
             }
             // fall through
           case 130: break;
           case 49:
-            { return symbol(DartReservedWords.CATCH);
+            { return symbol(DartReservedWords.CATCH.value);
             }
             // fall through
           case 131: break;
           case 50:
-            { return symbol(DartReservedWords.CLASS);
+            { return symbol(DartReservedWords.CLASS.value);
             }
             // fall through
           case 132: break;
           case 51:
-            { return symbol(DartReservedWords.CONST);
+            { return symbol(DartReservedWords.CONST.value);
             }
             // fall through
           case 133: break;
           case 52:
-            { return symbol(DartReservedWords.FALSE);
+            { return symbol(DartReservedWords.FALSE.value);
             }
             // fall through
           case 134: break;
           case 53:
-            { return symbol(DartReservedWords.FINAL);
+            { return symbol(DartReservedWords.FINAL.value);
             }
             // fall through
           case 135: break;
           case 54:
-            { return symbol(DartBuiltInWords.MIXIN);
+            { return symbol(DartBuiltInWords.MIXIN.value);
             }
             // fall through
           case 136: break;
           case 55:
-            { return symbol(DartReservedWords.SUPER);
+            { return symbol(DartReservedWords.SUPER.value);
             }
             // fall through
           case 137: break;
           case 56:
-            { return symbol(DartReservedWords.THROW);
+            { return symbol(DartReservedWords.THROW.value);
             }
             // fall through
           case 138: break;
           case 57:
-            { return symbol(DartReservedWords.WHILE);
+            { return symbol(DartReservedWords.WHILE.value);
             }
             // fall through
           case 139: break;
           case 58:
-            { return symbol(DartReservedWords.YIELD);
+            { return symbol(DartReservedWords.YIELD.value);
             }
             // fall through
           case 140: break;
           case 59:
-            { return symbol(DartReservedWords.ASSERT);
+            { return symbol(DartReservedWords.ASSERT.value);
             }
             // fall through
           case 141: break;
           case 60:
-            { return symbol(DartBuiltInWords.EXPORT);
+            { return symbol(DartBuiltInWords.EXPORT.value);
             }
             // fall through
           case 142: break;
           case 61:
-            { return symbol(DartBuiltInWords.IMPORT);
+            { return symbol(DartBuiltInWords.IMPORT.value);
             }
             // fall through
           case 143: break;
           case 62:
-            { return symbol(DartReservedWords.RETURN);
+            { return symbol(DartReservedWords.RETURN.value);
             }
             // fall through
           case 144: break;
           case 63:
-            { return symbol(DartBuiltInWords.STATIC);
+            { return symbol(DartBuiltInWords.STATIC.value);
             }
             // fall through
           case 145: break;
           case 64:
-            { return symbol(DartReservedWords.SWITCH);
+            { return symbol(DartReservedWords.SWITCH.value);
             }
             // fall through
           case 146: break;
           case 65:
-            { return symbol(DartReservedWords.DEFAULT);
+            { return symbol(DartReservedWords.DEFAULT.value);
             }
             // fall through
           case 147: break;
           case 66:
-            { return symbol(DartBuiltInWords.DYNAMIC);
+            { return symbol(DartBuiltInWords.DYNAMIC.value);
             }
             // fall through
           case 148: break;
           case 67:
-            { return symbol(DartReservedWords.EXTENDS);
+            { return symbol(DartReservedWords.EXTENDS.value);
             }
             // fall through
           case 149: break;
           case 68:
-            { return symbol(DartBuiltInWords.FACTORY);
+            { return symbol(DartBuiltInWords.FACTORY.value);
             }
             // fall through
           case 150: break;
           case 69:
-            { return symbol(DartReservedWords.FINALLY);
+            { return symbol(DartReservedWords.FINALLY.value);
             }
             // fall through
           case 151: break;
           case 70:
-            { return symbol(DartBuiltInWords.LIBRARY);
+            { return symbol(DartBuiltInWords.LIBRARY.value);
             }
             // fall through
           case 152: break;
           case 71:
-            { return symbol(DartReservedWords.RETHROW);
+            { return symbol(DartReservedWords.RETHROW.value);
             }
             // fall through
           case 153: break;
           case 72:
-            { return symbol(DartBuiltInWords.TYPEDEF);
+            { return symbol(DartBuiltInWords.TYPEDEF.value);
             }
             // fall through
           case 154: break;
           case 73:
-            { return symbol(DartBuiltInWords.ABSTRACT);
+            { return symbol(DartBuiltInWords.ABSTRACT.value);
             }
             // fall through
           case 155: break;
           case 74:
-            { return symbol(DartReservedWords.CONTINUE);
+            { return symbol(DartReservedWords.CONTINUE.value);
             }
             // fall through
           case 156: break;
           case 75:
-            { return symbol(DartBuiltInWords.DEFERRED);
+            { return symbol(DartBuiltInWords.DEFERRED.value);
             }
             // fall through
           case 157: break;
           case 76:
-            { return symbol(DartBuiltInWords.EXTERNAL);
+            { return symbol(DartBuiltInWords.EXTERNAL.value);
             }
             // fall through
           case 158: break;
           case 77:
-            { return symbol(DartBuiltInWords.FUNCTION);
+            { return symbol(DartBuiltInWords.FUNCTION.value);
             }
             // fall through
           case 159: break;
           case 78:
-            { return symbol(DartBuiltInWords.OPERATOR);
+            { return symbol(DartBuiltInWords.OPERATOR.value);
             }
             // fall through
           case 160: break;
           case 79:
-            { return symbol(DartBuiltInWords.COVARIANT);
+            { return symbol(DartBuiltInWords.COVARIANT.value);
             }
             // fall through
           case 161: break;
           case 80:
-            { return symbol(DartBuiltInWords.EXTENSION);
+            { return symbol(DartBuiltInWords.EXTENSION.value);
             }
             // fall through
           case 162: break;
           case 81:
-            { return symbol(DartBuiltInWords.INTERFACE);
+            { return symbol(DartBuiltInWords.INTERFACE.value);
             }
             // fall through
           case 163: break;
           case 82:
-            { return symbol(DartBuiltInWords.IMPLEMENTS);
+            { return symbol(DartBuiltInWords.IMPLEMENTS.value);
             }
             // fall through
           case 164: break;

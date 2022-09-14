@@ -10,5 +10,27 @@ package dart.compiler;
  * @author gustavoquintero
  */
 public enum DartOperators {
-    EQ, EQEQ, PLUS, PLUSPLUS, MINUS, MINUSMINUS, POW, POWPOW, AND, OR, MINUSEQ, PLUSEQ, RESID
+    EQ(61),
+    EQEQ(62),
+    PLUS(63),
+    PLUSPLUS(64),
+    MINUS(65),
+    MINUSMINUS(66),
+    POW(67),
+    POWPOW(68),
+    AND(69),
+    OR(70),
+    MINUSEQ(71),
+    PLUSEQ(72),
+    RESID(73),
+    STRINGLITERAL(74);
+    
+    public int value;
+    private DartOperators(int value){
+        this.value = value;
+    }
+    
+    public int getEnum(){
+        return value;
+    }
 }

@@ -3,7 +3,7 @@ import java_cup.runtime.*;
 import dart.compiler.DartReservedWords;
 import dart.compiler.DartOperators;
 import dart.compiler.DartBuiltInWords;
-import com.sun.java_cup.internal.runtime.Symbol;
+import java_cup.sym;
 /**
  * Dart Lexer
  */
@@ -48,86 +48,86 @@ DecIntegerLiteral = 0 | [1-9][0-9]*
 %%
 
 /* ops */
-"="                            { return symbol(DartOperators.EQ); }
-"=="                           { return symbol(DartOperators.EQEQ); }
-"+"                            { return symbol(DartOperators.PLUS); }
-"++"                           { return symbol(DartOperators.PLUSPLUS); }
-"-"                            { return symbol(DartOperators.MINUS); }
-"--"                           { return symbol(DartOperators.MINUSMINUS); }
-"*"                            { return symbol(DartOperators.POW); }
-"**"                           { return symbol(DartOperators.POWPOW); }
-"&&"                           { return symbol(DartOperators.AND); }
-"||"                           { return symbol(DartOperators.OR); }
-"-="                           { return symbol(DartOperators.MINUSEQ); }
-"+="                           { return symbol(DartOperators.PLUSEQ); }
-"%"                            { return symbol(DartOperators.RESID); }
+"="                            { return symbol(DartOperators.EQ.value); }
+"=="                           { return symbol(DartOperators.EQEQ.value); }
+"+"                            { return symbol(DartOperators.PLUS.value); }
+"++"                           { return symbol(DartOperators.PLUSPLUS.value); }
+"-"                            { return symbol(DartOperators.MINUS.value); }
+"--"                           { return symbol(DartOperators.MINUSMINUS.value); }
+"*"                            { return symbol(DartOperators.POW.value); }
+"**"                           { return symbol(DartOperators.POWPOW.value); }
+"&&"                           { return symbol(DartOperators.AND.value); }
+"||"                           { return symbol(DartOperators.OR.value); }
+"-="                           { return symbol(DartOperators.MINUSEQ.value); }
+"+="                           { return symbol(DartOperators.PLUSEQ.value); }
+"%"                            { return symbol(DartOperators.RESID.value); }
 
-/* keywords */
-<YYINITIAL> "assert"           {return symbol(DartReservedWords.ASSERT); }
-<YYINITIAL> "break"            {return symbol(DartReservedWords.BREAK); }
-<YYINITIAL> "case"             {return symbol(DartReservedWords.CASE); }
-<YYINITIAL> "catch"            {return symbol(DartReservedWords.CATCH); }
-<YYINITIAL> "class"            {return symbol(DartReservedWords.CLASS); }
-<YYINITIAL> "const"            {return symbol(DartReservedWords.CONST); }
-<YYINITIAL> "continue"         {return symbol(DartReservedWords.CONTINUE); }
-<YYINITIAL> "default"          {return symbol(DartReservedWords.DEFAULT); }
-<YYINITIAL> "do"               {return symbol(DartReservedWords.DO); }
-<YYINITIAL> "else"             {return symbol(DartReservedWords.ELSE); }
-<YYINITIAL> "enum"             {return symbol(DartReservedWords.ENUM); }
-<YYINITIAL> "extends"          {return symbol(DartReservedWords.EXTENDS); }
-<YYINITIAL> "false"            {return symbol(DartReservedWords.FALSE); }
-<YYINITIAL> "final"            {return symbol(DartReservedWords.FINAL); }
-<YYINITIAL> "finally"          {return symbol(DartReservedWords.FINALLY); }
-<YYINITIAL> "for"              {return symbol(DartReservedWords.FOR); }
-<YYINITIAL> "if"               {return symbol(DartReservedWords.IF); }
-<YYINITIAL> "in"               {return symbol(DartReservedWords.IN); }
-<YYINITIAL> "is"               {return symbol(DartReservedWords.IS); }
-<YYINITIAL> "new"              {return symbol(DartReservedWords.NEW); }
-<YYINITIAL> "null"             {return symbol(DartReservedWords.NULL); }
-<YYINITIAL> "rethrow"          {return symbol(DartReservedWords.RETHROW); }
-<YYINITIAL> "return"           {return symbol(DartReservedWords.RETURN); }
-<YYINITIAL> "super"            {return symbol(DartReservedWords.SUPER); }
-<YYINITIAL> "switch"           {return symbol(DartReservedWords.SWITCH); }
-<YYINITIAL> "this"             {return symbol(DartReservedWords.THIS); }
-<YYINITIAL> "throw"            {return symbol(DartReservedWords.THROW); }
-<YYINITIAL> "true"             {return symbol(DartReservedWords.TRUE); }
-<YYINITIAL> "try"              {return symbol(DartReservedWords.TRY); }
-<YYINITIAL> "var"              {return symbol(DartReservedWords.VAR); }
-<YYINITIAL> "void"             {return symbol(DartReservedWords.VOID); }
-<YYINITIAL> "while"            {return symbol(DartReservedWords.WHILE); }
-<YYINITIAL> "with"             {return symbol(DartReservedWords.WITH); }
-<YYINITIAL> "await"            {return symbol(DartReservedWords.AWAIT); }
-<YYINITIAL> "yield"            {return symbol(DartReservedWords.YIELD); }
-<YYINITIAL> "async"            {return symbol(DartReservedWords.ASYNC); }
-<YYINITIAL> "hide"             {return symbol(DartReservedWords.HIDE); }
-<YYINITIAL> "on"               {return symbol(DartReservedWords.ON); }
-<YYINITIAL> "show"             {return symbol(DartReservedWords.SHOW); }
-<YYINITIAL> "sync"             {return symbol(DartReservedWords.SYNC); }
-<YYINITIAL> "abstract"         {return symbol(DartBuiltInWords.ABSTRACT); }
-<YYINITIAL> "as"               {return symbol(DartBuiltInWords.AS); }
-<YYINITIAL> "covariant"        {return symbol(DartBuiltInWords.COVARIANT); }
-<YYINITIAL> "deferred"         {return symbol(DartBuiltInWords.DEFERRED); }
-<YYINITIAL> "dynamic"          {return symbol(DartBuiltInWords.DYNAMIC); }
-<YYINITIAL> "export"           {return symbol(DartBuiltInWords.EXPORT); }
-<YYINITIAL> "extension"        {return symbol(DartBuiltInWords.EXTENSION); }
-<YYINITIAL> "external"         {return symbol(DartBuiltInWords.EXTERNAL); }
-<YYINITIAL> "factory"          {return symbol(DartBuiltInWords.FACTORY); }
-<YYINITIAL> "function"         {return symbol(DartBuiltInWords.FUNCTION); }
-<YYINITIAL> "get"              {return symbol(DartBuiltInWords.GET); }
-<YYINITIAL> "implements"       {return symbol(DartBuiltInWords.IMPLEMENTS); }
-<YYINITIAL> "import"           {return symbol(DartBuiltInWords.IMPORT); }
-<YYINITIAL> "interface"        {return symbol(DartBuiltInWords.INTERFACE); }
-<YYINITIAL> "library"          {return symbol(DartBuiltInWords.LIBRARY); }
-<YYINITIAL> "mixin"            {return symbol(DartBuiltInWords.MIXIN); }
-<YYINITIAL> "operator"         {return symbol(DartBuiltInWords.OPERATOR); }
-<YYINITIAL> "part"             {return symbol(DartBuiltInWords.PART); }
-<YYINITIAL> "set"              {return symbol(DartBuiltInWords.SET); }
-<YYINITIAL> "static"           {return symbol(DartBuiltInWords.STATIC); }
-<YYINITIAL> "typedef"          {return symbol(DartBuiltInWords.TYPEDEF); }
+<YYINITIAL> "assert"           {return symbol(DartReservedWords.ASSERT.value); }
+<YYINITIAL> "break"            {return symbol(DartReservedWords.BREAK.value); }
+<YYINITIAL> "case"             {return symbol(DartReservedWords.CASE.value); }
+<YYINITIAL> "catch"            {return symbol(DartReservedWords.CATCH.value); }
+<YYINITIAL> "class"            {return symbol(DartReservedWords.CLASS.value); }
+<YYINITIAL> "const"            {return symbol(DartReservedWords.CONST.value); }
+<YYINITIAL> "continue"         {return symbol(DartReservedWords.CONTINUE.value); }
+<YYINITIAL> "default"          {return symbol(DartReservedWords.DEFAULT.value); }
+<YYINITIAL> "do"               {return symbol(DartReservedWords.DO.value); }
+<YYINITIAL> "else"             {return symbol(DartReservedWords.ELSE.value); }
+<YYINITIAL> "enum"             {return symbol(DartReservedWords.ENUM.value); }
+<YYINITIAL> "extends"          {return symbol(DartReservedWords.EXTENDS.value); }
+<YYINITIAL> "false"            {return symbol(DartReservedWords.FALSE.value); }
+<YYINITIAL> "final"            {return symbol(DartReservedWords.FINAL.value); }
+<YYINITIAL> "finally"          {return symbol(DartReservedWords.FINALLY.value); }
+<YYINITIAL> "for"              {return symbol(DartReservedWords.FOR.value); }
+<YYINITIAL> "if"               {return symbol(DartReservedWords.IF.value); }
+<YYINITIAL> "in"               {return symbol(DartReservedWords.IN.value); }
+<YYINITIAL> "is"               {return symbol(DartReservedWords.IS.value); }
+<YYINITIAL> "new"              {return symbol(DartReservedWords.NEW.value); }
+<YYINITIAL> "null"             {return symbol(DartReservedWords.NULL.value); }
+<YYINITIAL> "rethrow"          {return symbol(DartReservedWords.RETHROW.value); }
+<YYINITIAL> "return"           {return symbol(DartReservedWords.RETURN.value); }
+<YYINITIAL> "super"            {return symbol(DartReservedWords.SUPER.value); }
+<YYINITIAL> "switch"           {return symbol(DartReservedWords.SWITCH.value); }
+<YYINITIAL> "this"             {return symbol(DartReservedWords.THIS.value); }
+<YYINITIAL> "throw"            {return symbol(DartReservedWords.THROW.value); }
+<YYINITIAL> "true"             {return symbol(DartReservedWords.TRUE.value); }
+<YYINITIAL> "try"              {return symbol(DartReservedWords.TRY.value); }
+<YYINITIAL> "var"              {return symbol(DartReservedWords.VAR.value); }
+<YYINITIAL> "void"             {return symbol(DartReservedWords.VOID.value); }
+<YYINITIAL> "while"            {return symbol(DartReservedWords.WHILE.value); }
+<YYINITIAL> "with"             {return symbol(DartReservedWords.WITH.value); }
+<YYINITIAL> "await"            {return symbol(DartReservedWords.AWAIT.value); }
+<YYINITIAL> "yield"            {return symbol(DartReservedWords.YIELD.value); }
+<YYINITIAL> "async"            {return symbol(DartReservedWords.ASYNC.value); }
+<YYINITIAL> "hide"             {return symbol(DartReservedWords.HIDE.value); }
+<YYINITIAL> "on"               {return symbol(DartReservedWords.ON.value); }
+<YYINITIAL> "show"             {return symbol(DartReservedWords.SHOW.value); }
+<YYINITIAL> "sync"             {return symbol(DartReservedWords.SYNC.value); }
+<YYINITIAL> "abstract"         {return symbol(DartBuiltInWords.ABSTRACT.value); }
+<YYINITIAL> "as"               {return symbol(DartBuiltInWords.AS.value); }
+<YYINITIAL> "covariant"        {return symbol(DartBuiltInWords.COVARIANT.value); }
+<YYINITIAL> "deferred"         {return symbol(DartBuiltInWords.DEFERRED.value); }
+<YYINITIAL> "dynamic"          {return symbol(DartBuiltInWords.DYNAMIC.value); }
+<YYINITIAL> "export"           {return symbol(DartBuiltInWords.EXPORT.value); }
+<YYINITIAL> "extension"        {return symbol(DartBuiltInWords.EXTENSION.value); }
+<YYINITIAL> "external"         {return symbol(DartBuiltInWords.EXTERNAL.value); }
+<YYINITIAL> "factory"          {return symbol(DartBuiltInWords.FACTORY.value); }
+<YYINITIAL> "function"         {return symbol(DartBuiltInWords.FUNCTION.value); }
+<YYINITIAL> "get"              {return symbol(DartBuiltInWords.GET.value); }
+<YYINITIAL> "implements"       {return symbol(DartBuiltInWords.IMPLEMENTS.value); }
+<YYINITIAL> "import"           {return symbol(DartBuiltInWords.IMPORT.value); }
+<YYINITIAL> "interface"        {return symbol(DartBuiltInWords.INTERFACE.value); }
+<YYINITIAL> "library"          {return symbol(DartBuiltInWords.LIBRARY.value); }
+<YYINITIAL> "mixin"            {return symbol(DartBuiltInWords.MIXIN.value); }
+<YYINITIAL> "operator"         {return symbol(DartBuiltInWords.OPERATOR.value); }
+<YYINITIAL> "part"             {return symbol(DartBuiltInWords.PART.value); }
+<YYINITIAL> "set"              {return symbol(DartBuiltInWords.SET.value); }
+<YYINITIAL> "static"           {return symbol(DartBuiltInWords.STATIC.value); }
+<YYINITIAL> "typedef"          {return symbol(DartBuiltInWords.TYPEDEF.value); }
+
 
 <STRING> {
   \"                             { yybegin(YYINITIAL); 
-                                   return symbol(sym.STRING_LITERAL, 
+                                   return symbol(DartOperators.STRINGLITERAL.value, 
                                    string.toString()); }
   [^\n\r\"\\]+                   { string.append( yytext() ); }
   \\t                            { string.append('\t'); }
