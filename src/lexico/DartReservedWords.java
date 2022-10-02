@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package dart.compiler;
+package lexico;
 
 /**
  *
@@ -48,7 +48,9 @@ public enum DartReservedWords {
     HIDE(36),
     ON(37),
     SHOW(38),
-    SYNC(39);
+    SYNC(39),
+    MAIN(40),
+    PRINT(41);
     
     public int value;
     private DartReservedWords(int value){

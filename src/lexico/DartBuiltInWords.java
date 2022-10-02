@@ -1,4 +1,4 @@
-package dart.compiler;
+package lexico;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -31,6 +31,7 @@ public enum DartBuiltInWords {
    SET(58),
    STATIC(59),
    TYPEDEF(60);
+   
     public int value;
     private DartBuiltInWords(int value){
         this.value = value;

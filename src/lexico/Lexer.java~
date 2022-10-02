@@ -3,10 +3,13 @@
 // source: JFlexDart.jflex
 
 /* JFlex example: partial Java language lexer specification */
+package lexico;
+
+
 import java_cup.runtime.*;
-import dart.compiler.DartReservedWords;
-import dart.compiler.DartOperators;
-import dart.compiler.DartBuiltInWords;
+import lexico.DartReservedWords;
+import lexico.DartOperators;
+import lexico.DartBuiltInWords;
 import java_cup.sym;
 /**
  * Dart Lexer
@@ -90,12 +93,14 @@ class Lexer implements java_cup.runtime.Scanner {
   private static final int [] ZZ_CMAP_BLOCKS = zzUnpackcmap_blocks();
 
   private static final String ZZ_CMAP_BLOCKS_PACKED_0 =
-    "\12\0\1\1\2\0\1\1\24\0\1\2\2\0\1\3"+
-    "\1\4\3\0\1\5\1\6\1\0\1\7\17\0\1\10"+
-    "\36\0\1\11\4\0\1\12\1\13\1\14\1\15\1\16"+
-    "\1\17\1\20\1\21\1\22\1\0\1\23\1\24\1\25"+
-    "\1\26\1\27\1\30\1\0\1\31\1\32\1\33\1\34"+
-    "\1\35\1\36\1\37\1\40\2\0\1\41\u7883\0";
+    "\12\0\1\1\2\0\1\2\22\0\1\3\1\0\1\4"+
+    "\2\0\1\5\1\6\1\0\1\7\1\10\1\11\1\12"+
+    "\1\0\1\13\1\14\14\0\1\15\1\0\1\16\35\0"+
+    "\1\17\1\20\1\21\1\22\2\0\1\23\1\24\1\25"+
+    "\1\26\1\27\1\30\1\31\1\32\1\33\1\0\1\34"+
+    "\1\35\1\36\1\37\1\40\1\41\1\0\1\42\1\43"+
+    "\1\44\1\45\1\46\1\47\1\50\1\51\1\0\1\52"+
+    "\1\53\1\54\u7882\0";
 
   private static int [] zzUnpackcmap_blocks() {
     int [] result = new int[30976];
@@ -122,27 +127,30 @@ class Lexer implements java_cup.runtime.Scanner {
   private static final int [] ZZ_ACTION = zzUnpackAction();
 
   private static final String ZZ_ACTION_PACKED_0 =
-    "\2\0\1\1\1\2\1\1\1\3\1\4\1\5\1\6"+
-    "\25\1\1\7\1\10\1\2\1\7\1\3\1\4\1\5"+
-    "\1\6\1\11\1\7\1\12\1\13\1\14\1\15\1\16"+
-    "\1\17\1\20\1\0\1\21\6\0\1\22\12\0\1\23"+
-    "\1\0\1\24\1\25\4\0\1\26\21\0\1\27\1\12"+
-    "\1\13\1\14\1\15\1\16\1\17\1\20\1\30\1\31"+
-    "\1\32\1\33\1\27\23\0\1\34\1\0\1\35\5\0"+
-    "\1\36\4\0\1\37\10\0\1\40\1\0\1\41\11\0"+
-    "\1\42\10\0\1\43\1\44\6\0\1\45\5\0\1\46"+
-    "\1\0\1\47\2\0\1\50\3\0\1\51\1\52\1\0"+
-    "\1\53\1\0\1\54\1\0\1\55\3\0\1\56\1\57"+
-    "\1\60\1\61\1\62\1\63\11\0\1\64\1\65\5\0"+
-    "\1\66\4\0\1\67\1\0\1\70\1\0\1\71\1\72"+
-    "\1\0\1\73\5\0\1\74\7\0\1\75\4\0\1\76"+
-    "\1\77\1\100\4\0\1\101\1\0\1\102\1\103\2\0"+
-    "\1\104\1\105\3\0\1\106\1\0\1\107\1\110\1\111"+
-    "\1\112\1\0\1\113\1\0\1\114\1\115\2\0\1\116"+
-    "\1\117\1\120\1\0\1\121\1\122";
+    "\2\0\1\1\1\2\1\3\1\1\1\4\1\1\1\5"+
+    "\1\6\1\7\1\10\1\11\1\12\1\13\24\1\1\14"+
+    "\1\1\1\15\1\16\1\3\1\17\1\4\1\16\1\5"+
+    "\1\6\1\7\1\10\1\11\1\12\1\13\1\20\1\14"+
+    "\1\16\1\15\1\0\1\21\1\22\1\23\1\24\1\25"+
+    "\1\26\1\27\1\0\1\30\6\0\1\31\12\0\1\32"+
+    "\1\0\1\33\1\34\5\0\1\35\22\0\1\36\1\21"+
+    "\1\22\1\23\1\24\1\25\1\26\1\27\1\37\1\40"+
+    "\1\41\1\42\1\36\24\0\1\43\1\0\1\44\6\0"+
+    "\1\45\5\0\1\46\10\0\1\47\1\0\1\50\12\0"+
+    "\1\51\10\0\1\52\1\53\6\0\1\54\4\0\1\55"+
+    "\1\0\1\56\1\0\1\57\3\0\1\60\3\0\1\61"+
+    "\1\62\1\0\1\63\1\0\1\64\1\0\1\65\4\0"+
+    "\1\66\1\67\1\70\1\71\1\72\1\73\11\0\1\74"+
+    "\1\75\5\0\1\76\1\0\1\77\3\0\1\100\1\0"+
+    "\1\101\1\0\1\102\1\103\2\0\1\104\5\0\1\105"+
+    "\7\0\1\106\4\0\1\107\1\110\1\111\5\0\1\112"+
+    "\1\0\1\113\1\114\2\0\1\115\1\116\3\0\1\117"+
+    "\1\0\1\120\1\121\1\0\1\122\1\123\1\0\1\124"+
+    "\1\0\1\125\1\126\2\0\1\127\1\0\1\130\1\131"+
+    "\1\0\1\132\1\133\1\134";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[291];
+    int [] result = new int[321];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -167,46 +175,50 @@ class Lexer implements java_cup.runtime.Scanner {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
-    "\0\0\0\42\0\104\0\104\0\146\0\210\0\252\0\314"+
-    "\0\356\0\u0110\0\u0132\0\u0154\0\u0176\0\u0198\0\u01ba\0\u01dc"+
-    "\0\u01fe\0\u0220\0\u0242\0\u0264\0\u0286\0\u02a8\0\u02ca\0\u02ec"+
-    "\0\u030e\0\u0330\0\u0352\0\u0374\0\u0396\0\u03b8\0\u03da\0\104"+
-    "\0\u03da\0\u03fc\0\u041e\0\u0440\0\u0462\0\u0484\0\u04a6\0\u04c8"+
-    "\0\104\0\104\0\104\0\104\0\104\0\104\0\104\0\u04ea"+
-    "\0\u050c\0\u052e\0\u0550\0\u0572\0\u0594\0\u05b6\0\u05d8\0\104"+
-    "\0\u05fa\0\u061c\0\u063e\0\u0660\0\u0682\0\u06a4\0\u06c6\0\u06e8"+
-    "\0\u070a\0\u072c\0\104\0\u074e\0\u0770\0\104\0\u0792\0\u07b4"+
-    "\0\u07d6\0\u07f8\0\104\0\u081a\0\u083c\0\u085e\0\u0880\0\u08a2"+
-    "\0\u08c4\0\u08e6\0\u0908\0\u092a\0\u094c\0\u096e\0\u0990\0\u09b2"+
-    "\0\u09d4\0\u09f6\0\u0a18\0\u0a3a\0\104\0\u03da\0\u03da\0\u03da"+
-    "\0\u03da\0\u03da\0\u03da\0\u03da\0\104\0\104\0\104\0\104"+
-    "\0\u03da\0\u0a5c\0\u0a7e\0\u0aa0\0\u0ac2\0\u0ae4\0\u0b06\0\u0b28"+
-    "\0\u0b4a\0\u0b6c\0\u0b8e\0\u0bb0\0\u0bd2\0\u0bf4\0\u0c16\0\u0c38"+
-    "\0\u0c5a\0\u0c7c\0\u0c9e\0\u0cc0\0\104\0\u0ce2\0\104\0\u0d04"+
-    "\0\u0d26\0\u0d48\0\u0d6a\0\u0d8c\0\104\0\u0dae\0\u0dd0\0\u0df2"+
-    "\0\u0e14\0\104\0\u0e36\0\u0e58\0\u0e7a\0\u0e9c\0\u0ebe\0\u0ee0"+
-    "\0\u0f02\0\u0f24\0\104\0\u0f46\0\104\0\u0f68\0\u0f8a\0\u0fac"+
-    "\0\u0fce\0\u0ff0\0\u1012\0\u1034\0\u1056\0\u1078\0\104\0\u109a"+
-    "\0\u10bc\0\u10de\0\u1100\0\u1122\0\u1144\0\u1166\0\u1188\0\104"+
-    "\0\104\0\u11aa\0\u11cc\0\u11ee\0\u1210\0\u1232\0\u1254\0\104"+
-    "\0\u1276\0\u1298\0\u12ba\0\u12dc\0\u12fe\0\104\0\u1320\0\104"+
-    "\0\u1342\0\u1364\0\104\0\u1386\0\u13a8\0\u13ca\0\104\0\104"+
-    "\0\u13ec\0\104\0\u140e\0\104\0\u1430\0\104\0\u1452\0\u1474"+
-    "\0\u1496\0\104\0\104\0\104\0\104\0\104\0\104\0\u14b8"+
-    "\0\u14da\0\u14fc\0\u151e\0\u1540\0\u1562\0\u1584\0\u15a6\0\u15c8"+
-    "\0\104\0\u15ea\0\u160c\0\u162e\0\u1650\0\u1672\0\u1694\0\104"+
-    "\0\u16b6\0\u16d8\0\u16fa\0\u171c\0\104\0\u173e\0\104\0\u1760"+
-    "\0\104\0\104\0\u1782\0\104\0\u17a4\0\u17c6\0\u17e8\0\u180a"+
-    "\0\u182c\0\104\0\u184e\0\u1870\0\u1892\0\u18b4\0\u18d6\0\u18f8"+
-    "\0\u191a\0\104\0\u193c\0\u195e\0\u1980\0\u19a2\0\104\0\104"+
-    "\0\104\0\u19c4\0\u19e6\0\u1a08\0\u1a2a\0\104\0\u1a4c\0\104"+
-    "\0\104\0\u1a6e\0\u1a90\0\104\0\104\0\u1ab2\0\u1ad4\0\u1af6"+
-    "\0\104\0\u1b18\0\104\0\104\0\104\0\104\0\u1b3a\0\104"+
-    "\0\u1b5c\0\104\0\104\0\u1b7e\0\u1ba0\0\104\0\104\0\104"+
-    "\0\u1bc2\0\104\0\104";
+    "\0\0\0\55\0\132\0\132\0\132\0\207\0\132\0\264"+
+    "\0\132\0\132\0\341\0\u010e\0\u013b\0\132\0\u0168\0\u0195"+
+    "\0\u01c2\0\u01ef\0\u021c\0\u0249\0\u0276\0\u02a3\0\u02d0\0\u02fd"+
+    "\0\u032a\0\u0357\0\u0384\0\u03b1\0\u03de\0\u040b\0\u0438\0\u0465"+
+    "\0\u0492\0\u04bf\0\u04ec\0\132\0\u0519\0\132\0\u0546\0\u0546"+
+    "\0\132\0\u0546\0\u0573\0\u0546\0\u0546\0\u05a0\0\u05cd\0\u05fa"+
+    "\0\u0546\0\u0627\0\u0654\0\u0546\0\u0681\0\u0546\0\u06ae\0\132"+
+    "\0\132\0\132\0\132\0\132\0\132\0\132\0\u06db\0\u0708"+
+    "\0\u0735\0\u0762\0\u078f\0\u07bc\0\u07e9\0\u0816\0\132\0\u0843"+
+    "\0\u0870\0\u089d\0\u08ca\0\u08f7\0\u0924\0\u0951\0\u097e\0\u09ab"+
+    "\0\u09d8\0\132\0\u0a05\0\u0a32\0\132\0\u0a5f\0\u0a8c\0\u0ab9"+
+    "\0\u0ae6\0\u0b13\0\132\0\u0b40\0\u0b6d\0\u0b9a\0\u0bc7\0\u0bf4"+
+    "\0\u0c21\0\u0c4e\0\u0c7b\0\u0ca8\0\u0cd5\0\u0d02\0\u0d2f\0\u0d5c"+
+    "\0\u0d89\0\u0db6\0\u0de3\0\u0e10\0\u0e3d\0\132\0\u0546\0\u0546"+
+    "\0\u0546\0\u0546\0\u0546\0\u0546\0\u0546\0\132\0\132\0\132"+
+    "\0\132\0\u0546\0\u0e6a\0\u0e97\0\u0ec4\0\u0ef1\0\u0f1e\0\u0f4b"+
+    "\0\u0f78\0\u0fa5\0\u0fd2\0\u0fff\0\u102c\0\u1059\0\u1086\0\u10b3"+
+    "\0\u10e0\0\u110d\0\u113a\0\u1167\0\u1194\0\u11c1\0\132\0\u11ee"+
+    "\0\132\0\u121b\0\u1248\0\u1275\0\u12a2\0\u12cf\0\u12fc\0\132"+
+    "\0\u1329\0\u1356\0\u1383\0\u13b0\0\u13dd\0\132\0\u140a\0\u1437"+
+    "\0\u1464\0\u1491\0\u14be\0\u14eb\0\u1518\0\u1545\0\132\0\u1572"+
+    "\0\132\0\u159f\0\u15cc\0\u15f9\0\u1626\0\u1653\0\u1680\0\u16ad"+
+    "\0\u16da\0\u1707\0\u1734\0\132\0\u1761\0\u178e\0\u17bb\0\u17e8"+
+    "\0\u1815\0\u1842\0\u186f\0\u189c\0\132\0\132\0\u18c9\0\u18f6"+
+    "\0\u1923\0\u1950\0\u197d\0\u19aa\0\132\0\u19d7\0\u1a04\0\u1a31"+
+    "\0\u1a5e\0\132\0\u1a8b\0\132\0\u1ab8\0\132\0\u1ae5\0\u1b12"+
+    "\0\u1b3f\0\132\0\u1b6c\0\u1b99\0\u1bc6\0\132\0\132\0\u1bf3"+
+    "\0\132\0\u1c20\0\132\0\u1c4d\0\132\0\u1c7a\0\u1ca7\0\u1cd4"+
+    "\0\u1d01\0\132\0\132\0\132\0\132\0\132\0\132\0\u1d2e"+
+    "\0\u1d5b\0\u1d88\0\u1db5\0\u1de2\0\u1e0f\0\u1e3c\0\u1e69\0\u1e96"+
+    "\0\132\0\u1ec3\0\u1ef0\0\u1f1d\0\u1f4a\0\u1f77\0\u1fa4\0\132"+
+    "\0\u1fd1\0\132\0\u1ffe\0\u202b\0\u2058\0\132\0\u2085\0\132"+
+    "\0\u20b2\0\132\0\132\0\u20df\0\u210c\0\132\0\u2139\0\u2166"+
+    "\0\u2193\0\u21c0\0\u21ed\0\132\0\u221a\0\u2247\0\u2274\0\u22a1"+
+    "\0\u22ce\0\u22fb\0\u2328\0\132\0\u2355\0\u2382\0\u23af\0\u23dc"+
+    "\0\132\0\132\0\132\0\u2409\0\u2436\0\u2463\0\u2490\0\u24bd"+
+    "\0\132\0\u24ea\0\132\0\132\0\u2517\0\u2544\0\132\0\132"+
+    "\0\u2571\0\u259e\0\u25cb\0\132\0\u25f8\0\132\0\132\0\u2625"+
+    "\0\132\0\132\0\u2652\0\132\0\u267f\0\132\0\132\0\u26ac"+
+    "\0\u26d9\0\132\0\u2706\0\132\0\132\0\u2733\0\132\0\132"+
+    "\0\132";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[291];
+    int [] result = new int[321];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -229,80 +241,89 @@ class Lexer implements java_cup.runtime.Scanner {
   private static final int [] ZZ_TRANS = zzUnpackTrans();
 
   private static final String ZZ_TRANS_PACKED_0 =
-    "\3\3\1\4\1\5\1\6\1\7\1\10\1\11\1\3"+
-    "\1\12\1\13\1\14\1\15\1\16\1\17\1\20\1\21"+
-    "\1\22\1\3\1\23\1\24\1\25\1\26\1\27\1\30"+
-    "\1\31\1\32\1\3\1\33\1\34\1\3\1\35\1\36"+
-    "\1\37\1\3\1\40\1\41\1\42\1\43\1\44\1\45"+
-    "\1\46\1\47\27\37\1\50\46\0\1\51\42\0\1\52"+
-    "\42\0\1\53\1\0\1\54\40\0\1\55\1\56\41\0"+
-    "\1\57\44\0\1\60\16\0\1\61\3\0\1\62\34\0"+
-    "\1\63\22\0\1\64\11\0\1\65\2\0\1\66\30\0"+
-    "\1\67\10\0\1\70\10\0\1\71\25\0\1\72\1\0"+
-    "\1\73\10\0\1\74\14\0\1\75\7\0\1\76\4\0"+
-    "\1\77\4\0\1\100\23\0\1\101\45\0\1\102\36\0"+
-    "\1\103\5\0\1\104\1\105\3\0\1\106\31\0\1\107"+
-    "\41\0\1\110\35\0\1\111\15\0\1\112\33\0\1\113"+
-    "\1\0\1\114\23\0\1\115\45\0\1\116\41\0\1\117"+
-    "\2\0\1\120\11\0\1\121\1\122\1\0\1\123\1\0"+
-    "\1\124\22\0\1\125\7\0\1\126\6\0\1\127\13\0"+
-    "\1\130\14\0\1\131\33\0\1\132\1\133\41\0\1\134"+
-    "\60\0\1\135\1\37\2\0\6\37\1\0\31\37\2\0"+
-    "\1\37\1\136\4\37\1\0\31\37\2\0\2\37\1\137"+
-    "\3\37\1\0\31\37\2\0\3\37\1\140\1\37\1\141"+
-    "\1\0\31\37\2\0\4\37\1\142\1\143\1\0\31\37"+
-    "\2\0\5\37\1\144\1\0\30\37\2\0\1\145\23\0"+
-    "\1\146\2\0\1\147\1\0\1\150\6\0\1\37\2\0"+
-    "\6\37\1\0\27\37\1\151\32\0\1\152\41\0\1\153"+
-    "\5\0\1\154\13\0\1\155\45\0\1\156\55\0\1\157"+
-    "\1\160\20\0\1\161\55\0\1\162\6\0\1\163\23\0"+
-    "\1\164\50\0\1\165\45\0\1\166\43\0\1\167\35\0"+
-    "\1\170\2\0\1\171\22\0\1\172\7\0\1\173\43\0"+
-    "\1\174\44\0\1\175\36\0\1\176\46\0\1\177\23\0"+
-    "\1\200\54\0\1\201\44\0\1\202\21\0\1\203\65\0"+
-    "\1\204\40\0\1\205\27\0\1\206\33\0\1\207\54\0"+
-    "\1\210\43\0\1\211\41\0\1\212\35\0\1\213\24\0"+
-    "\1\214\57\0\1\215\33\0\1\216\45\0\1\217\35\0"+
-    "\1\220\6\0\1\221\44\0\1\222\3\0\1\223\31\0"+
-    "\1\224\42\0\1\225\32\0\1\226\41\0\1\227\52\0"+
-    "\1\230\24\0\1\231\56\0\1\232\24\0\1\233\51\0"+
-    "\1\234\35\0\1\235\31\0\1\236\45\0\1\237\37\0"+
-    "\1\240\57\0\1\241\41\0\1\242\1\243\20\0\1\244"+
-    "\41\0\1\245\3\0\1\246\35\0\1\247\45\0\1\250"+
-    "\50\0\1\251\43\0\1\252\30\0\1\253\56\0\1\254"+
-    "\40\0\1\255\21\0\1\256\43\0\1\257\43\0\1\260"+
-    "\47\0\1\261\2\0\1\262\30\0\1\263\54\0\1\264"+
-    "\32\0\1\265\43\0\1\266\46\0\1\267\43\0\1\270"+
-    "\27\0\1\271\12\0\1\272\43\0\1\273\36\0\1\274"+
-    "\24\0\1\275\56\0\1\276\22\0\1\277\57\0\1\300"+
-    "\36\0\1\301\30\0\1\302\41\0\1\303\40\0\1\304"+
-    "\50\0\1\305\36\0\1\306\44\0\1\307\46\0\1\310"+
-    "\41\0\1\311\24\0\1\312\60\0\1\313\31\0\1\314"+
-    "\37\0\1\315\52\0\1\316\42\0\1\317\30\0\1\320"+
-    "\50\0\1\321\44\0\1\322\36\0\1\323\35\0\1\324"+
-    "\45\0\1\325\36\0\1\326\2\0\1\327\37\0\1\330"+
-    "\30\0\1\331\47\0\1\332\50\0\1\333\24\0\1\334"+
-    "\54\0\1\335\41\0\1\336\22\0\1\337\55\0\1\340"+
-    "\25\0\1\341\60\0\1\342\41\0\1\343\32\0\1\344"+
-    "\50\0\1\345\24\0\1\346\63\0\1\347\20\0\1\350"+
-    "\42\0\1\351\40\0\1\352\36\0\1\353\62\0\1\354"+
-    "\34\0\1\355\35\0\1\356\43\0\1\357\46\0\1\360"+
-    "\32\0\1\361\52\0\1\362\23\0\1\363\14\0\1\364"+
-    "\35\0\1\365\44\0\1\366\34\0\1\367\37\0\1\370"+
-    "\44\0\1\371\47\0\1\372\25\0\1\373\53\0\1\374"+
-    "\43\0\1\375\35\0\1\376\40\0\1\377\27\0\1\u0100"+
-    "\46\0\1\u0101\36\0\1\u0102\37\0\1\u0103\61\0\1\u0104"+
-    "\17\0\1\u0105\62\0\1\u0106\24\0\1\u0107\37\0\1\u0108"+
-    "\57\0\1\u0109\31\0\1\u010a\31\0\1\u010b\67\0\1\u010c"+
-    "\41\0\1\u010d\30\0\1\u010e\30\0\1\u010f\35\0\1\u0110"+
-    "\67\0\1\u0111\30\0\1\u0112\50\0\1\u0113\22\0\1\u0114"+
-    "\55\0\1\u0115\24\0\1\u0116\51\0\1\u0117\30\0\1\u0118"+
-    "\53\0\1\u0119\36\0\1\u011a\43\0\1\u011b\41\0\1\u011c"+
-    "\27\0\1\u011d\56\0\1\u011e\43\0\1\u011f\34\0\1\u0120"+
-    "\46\0\1\u0121\24\0\1\u0122\55\0\1\u0123\7\0";
+    "\1\3\1\4\1\3\1\5\1\6\1\7\1\10\1\11"+
+    "\1\12\1\13\1\14\1\15\1\3\1\16\1\17\4\3"+
+    "\1\20\1\21\1\22\1\23\1\24\1\25\1\26\1\27"+
+    "\1\30\1\3\1\31\1\32\1\33\1\34\1\35\1\36"+
+    "\1\37\1\40\1\3\1\41\1\42\1\3\1\43\1\44"+
+    "\1\45\1\46\1\47\1\4\1\3\1\50\1\51\1\52"+
+    "\1\53\1\54\1\55\1\56\1\57\1\60\1\47\1\61"+
+    "\1\62\1\47\1\63\31\47\1\64\1\65\1\66\64\0"+
+    "\1\67\53\0\1\70\57\0\1\71\55\0\1\72\3\0"+
+    "\1\73\51\0\1\74\2\0\1\75\54\0\1\76\62\0"+
+    "\1\77\16\0\1\100\3\0\1\101\47\0\1\102\35\0"+
+    "\1\103\11\0\1\104\2\0\1\105\43\0\1\106\10\0"+
+    "\1\107\10\0\1\110\40\0\1\111\1\0\1\112\10\0"+
+    "\1\113\27\0\1\114\7\0\1\115\4\0\1\116\4\0"+
+    "\1\117\36\0\1\120\60\0\1\121\51\0\1\122\5\0"+
+    "\1\123\1\124\3\0\1\125\44\0\1\126\44\0\1\127"+
+    "\7\0\1\130\50\0\1\131\15\0\1\132\46\0\1\133"+
+    "\1\0\1\134\36\0\1\135\16\0\1\136\41\0\1\137"+
+    "\54\0\1\140\2\0\1\141\11\0\1\142\1\143\1\0"+
+    "\1\144\1\0\1\145\35\0\1\146\7\0\1\147\6\0"+
+    "\1\150\26\0\1\151\14\0\1\152\46\0\1\153\1\154"+
+    "\54\0\1\155\74\0\1\156\1\0\1\47\2\0\1\47"+
+    "\1\0\13\47\1\0\35\47\2\0\1\47\1\0\1\47"+
+    "\1\157\11\47\1\0\35\47\2\0\1\47\1\0\4\47"+
+    "\1\160\6\47\1\0\35\47\2\0\1\47\1\0\5\47"+
+    "\1\161\3\47\1\162\1\47\1\0\35\47\2\0\1\47"+
+    "\1\0\6\47\1\163\2\47\1\164\1\47\1\0\35\47"+
+    "\2\0\1\47\1\0\11\47\1\165\1\47\1\0\34\47"+
+    "\4\0\1\166\32\0\1\167\2\0\1\170\1\0\1\171"+
+    "\10\0\1\47\2\0\1\47\1\0\13\47\1\0\32\47"+
+    "\1\172\1\47\14\0\1\173\103\0\1\174\54\0\1\175"+
+    "\5\0\1\176\26\0\1\177\60\0\1\200\70\0\1\201"+
+    "\1\202\33\0\1\203\70\0\1\204\6\0\1\205\36\0"+
+    "\1\206\63\0\1\207\60\0\1\210\56\0\1\211\50\0"+
+    "\1\212\2\0\1\213\35\0\1\214\7\0\1\215\56\0"+
+    "\1\216\57\0\1\217\51\0\1\220\61\0\1\221\36\0"+
+    "\1\222\67\0\1\223\57\0\1\224\34\0\1\225\63\0"+
+    "\1\226\71\0\1\227\53\0\1\230\42\0\1\231\46\0"+
+    "\1\232\67\0\1\233\45\0\1\234\65\0\1\235\54\0"+
+    "\1\236\50\0\1\237\37\0\1\240\72\0\1\241\46\0"+
+    "\1\242\60\0\1\243\50\0\1\244\6\0\1\245\57\0"+
+    "\1\246\3\0\1\247\44\0\1\250\55\0\1\251\45\0"+
+    "\1\252\54\0\1\253\65\0\1\254\37\0\1\255\44\0"+
+    "\1\256\101\0\1\257\37\0\1\260\64\0\1\261\50\0"+
+    "\1\262\44\0\1\263\60\0\1\264\52\0\1\265\72\0"+
+    "\1\266\54\0\1\267\1\270\33\0\1\271\54\0\1\272"+
+    "\3\0\1\273\50\0\1\274\60\0\1\275\63\0\1\276"+
+    "\56\0\1\277\43\0\1\300\71\0\1\301\53\0\1\302"+
+    "\34\0\1\303\56\0\1\304\56\0\1\305\62\0\1\306"+
+    "\2\0\1\307\43\0\1\310\67\0\1\311\51\0\1\312"+
+    "\50\0\1\313\56\0\1\314\61\0\1\315\56\0\1\316"+
+    "\47\0\1\317\47\0\1\320\12\0\1\321\56\0\1\322"+
+    "\51\0\1\323\37\0\1\324\71\0\1\325\35\0\1\326"+
+    "\72\0\1\327\51\0\1\330\43\0\1\331\54\0\1\332"+
+    "\53\0\1\333\63\0\1\334\51\0\1\335\57\0\1\336"+
+    "\41\0\1\337\74\0\1\340\54\0\1\341\37\0\1\342"+
+    "\73\0\1\343\44\0\1\344\52\0\1\345\65\0\1\346"+
+    "\55\0\1\347\43\0\1\350\63\0\1\351\57\0\1\352"+
+    "\51\0\1\353\50\0\1\354\60\0\1\355\51\0\1\356"+
+    "\2\0\1\357\52\0\1\360\43\0\1\361\62\0\1\362"+
+    "\63\0\1\363\37\0\1\364\67\0\1\365\54\0\1\366"+
+    "\35\0\1\367\70\0\1\370\40\0\1\371\75\0\1\372"+
+    "\52\0\1\373\54\0\1\374\45\0\1\375\63\0\1\376"+
+    "\37\0\1\377\76\0\1\u0100\33\0\1\u0101\55\0\1\u0102"+
+    "\53\0\1\u0103\32\0\1\u0104\73\0\1\u0105\75\0\1\u0106"+
+    "\47\0\1\u0107\50\0\1\u0108\56\0\1\u0109\61\0\1\u010a"+
+    "\45\0\1\u010b\65\0\1\u010c\36\0\1\u010d\14\0\1\u010e"+
+    "\50\0\1\u010f\57\0\1\u0110\47\0\1\u0111\52\0\1\u0112"+
+    "\57\0\1\u0113\62\0\1\u0114\40\0\1\u0115\66\0\1\u0116"+
+    "\56\0\1\u0117\50\0\1\u0118\53\0\1\u0119\42\0\1\u011a"+
+    "\61\0\1\u011b\51\0\1\u011c\46\0\1\u011d\60\0\1\u011e"+
+    "\74\0\1\u011f\32\0\1\u0120\75\0\1\u0121\37\0\1\u0122"+
+    "\52\0\1\u0123\72\0\1\u0124\44\0\1\u0125\44\0\1\u0126"+
+    "\102\0\1\u0127\54\0\1\u0128\43\0\1\u0129\43\0\1\u012a"+
+    "\50\0\1\u012b\102\0\1\u012c\43\0\1\u012d\63\0\1\u012e"+
+    "\35\0\1\u012f\35\0\1\u0130\107\0\1\u0131\37\0\1\u0132"+
+    "\64\0\1\u0133\43\0\1\u0134\66\0\1\u0135\51\0\1\u0136"+
+    "\56\0\1\u0137\54\0\1\u0138\42\0\1\u0139\71\0\1\u013a"+
+    "\22\0\1\u013b\110\0\1\u013c\47\0\1\u013d\61\0\1\u013e"+
+    "\37\0\1\u013f\31\0\1\u0140\113\0\1\u0141\11\0";
 
   private static int [] zzUnpackTrans() {
-    int [] result = new int[7140];
+    int [] result = new int[10080];
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -345,21 +366,23 @@ class Lexer implements java_cup.runtime.Scanner {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\2\0\2\11\33\1\1\11\10\1\7\11\1\0\1\1"+
-    "\6\0\1\11\12\0\1\11\1\0\1\1\1\11\4\0"+
-    "\1\11\21\0\1\11\7\1\4\11\1\1\23\0\1\11"+
-    "\1\0\1\11\5\0\1\11\4\0\1\11\10\0\1\11"+
-    "\1\0\1\11\11\0\1\11\10\0\2\11\6\0\1\11"+
-    "\5\0\1\11\1\0\1\11\2\0\1\11\3\0\2\11"+
-    "\1\0\1\11\1\0\1\11\1\0\1\11\3\0\6\11"+
-    "\11\0\1\11\1\1\5\0\1\11\4\0\1\11\1\0"+
-    "\1\11\1\0\2\11\1\0\1\11\5\0\1\11\7\0"+
-    "\1\11\4\0\3\11\4\0\1\11\1\0\2\11\2\0"+
-    "\2\11\3\0\1\11\1\0\4\11\1\0\1\11\1\0"+
-    "\2\11\2\0\3\11\1\0\2\11";
+    "\2\0\3\11\1\1\1\11\1\1\2\11\3\1\1\11"+
+    "\25\1\1\11\1\1\1\11\2\1\1\11\15\1\1\0"+
+    "\7\11\1\0\1\1\6\0\1\11\12\0\1\11\1\0"+
+    "\1\1\1\11\5\0\1\11\22\0\1\11\7\1\4\11"+
+    "\1\1\24\0\1\11\1\0\1\11\6\0\1\11\5\0"+
+    "\1\11\10\0\1\11\1\0\1\11\12\0\1\11\10\0"+
+    "\2\11\6\0\1\11\4\0\1\11\1\0\1\11\1\0"+
+    "\1\11\3\0\1\11\3\0\2\11\1\0\1\11\1\0"+
+    "\1\11\1\0\1\11\4\0\6\11\11\0\1\11\1\1"+
+    "\5\0\1\11\1\0\1\11\3\0\1\11\1\0\1\11"+
+    "\1\0\2\11\2\0\1\11\5\0\1\11\7\0\1\11"+
+    "\4\0\3\11\5\0\1\11\1\0\2\11\2\0\2\11"+
+    "\3\0\1\11\1\0\2\11\1\0\2\11\1\0\1\11"+
+    "\1\0\2\11\2\0\1\11\1\0\2\11\1\0\3\11";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[291];
+    int [] result = new int[321];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -856,414 +879,464 @@ class Lexer implements java_cup.runtime.Scanner {
                                                     yytext()+">");
             }
             // fall through
-          case 83: break;
+          case 93: break;
           case 2:
-            { return symbol(DartOperators.RESID.value);
+            { return symbol(DartOperators.LINEABREAK.value, yytext());
             }
             // fall through
-          case 84: break;
+          case 94: break;
           case 3:
-            { return symbol(DartOperators.POW.value);
+            { return symbol(DartOperators.SPACE.value, yytext());
             }
             // fall through
-          case 85: break;
+          case 95: break;
           case 4:
-            { return symbol(DartOperators.PLUS.value);
+            { return symbol(DartOperators.RESID.value, yytext());
             }
             // fall through
-          case 86: break;
+          case 96: break;
           case 5:
-            { return symbol(DartOperators.MINUS.value);
+            { return symbol(DartOperators.OPENPARENT.value, yytext());
             }
             // fall through
-          case 87: break;
+          case 97: break;
           case 6:
-            { return symbol(DartOperators.EQ.value);
+            { return symbol(DartOperators.CLOSEPARENT.value, yytext());
             }
             // fall through
-          case 88: break;
+          case 98: break;
           case 7:
+            { return symbol(DartOperators.POW.value, yytext());
+            }
+            // fall through
+          case 99: break;
+          case 8:
+            { return symbol(DartOperators.PLUS.value, yytext());
+            }
+            // fall through
+          case 100: break;
+          case 9:
+            { return symbol(DartOperators.MINUS.value, yytext());
+            }
+            // fall through
+          case 101: break;
+          case 10:
+            { return symbol(DartOperators.SEMICOLON.value, yytext());
+            }
+            // fall through
+          case 102: break;
+          case 11:
+            { return symbol(DartOperators.EQ.value, yytext());
+            }
+            // fall through
+          case 103: break;
+          case 12:
+            { return symbol(DartOperators.OPENCODE.value, yytext());
+            }
+            // fall through
+          case 104: break;
+          case 13:
+            { return symbol(DartOperators.CLOSECODE.value, yytext());
+            }
+            // fall through
+          case 105: break;
+          case 14:
             { string.append( yytext() );
             }
             // fall through
-          case 89: break;
-          case 8:
+          case 106: break;
+          case 15:
             { yybegin(YYINITIAL); 
                                    return symbol(DartOperators.STRINGLITERAL.value, 
                                    string.toString());
             }
             // fall through
-          case 90: break;
-          case 9:
+          case 107: break;
+          case 16:
             { string.append('\\');
             }
             // fall through
-          case 91: break;
-          case 10:
-            { return symbol(DartOperators.AND.value);
-            }
-            // fall through
-          case 92: break;
-          case 11:
-            { return symbol(DartOperators.POWPOW.value);
-            }
-            // fall through
-          case 93: break;
-          case 12:
-            { return symbol(DartOperators.PLUSPLUS.value);
-            }
-            // fall through
-          case 94: break;
-          case 13:
-            { return symbol(DartOperators.PLUSEQ.value);
-            }
-            // fall through
-          case 95: break;
-          case 14:
-            { return symbol(DartOperators.MINUSMINUS.value);
-            }
-            // fall through
-          case 96: break;
-          case 15:
-            { return symbol(DartOperators.MINUSEQ.value);
-            }
-            // fall through
-          case 97: break;
-          case 16:
-            { return symbol(DartOperators.EQEQ.value);
-            }
-            // fall through
-          case 98: break;
-          case 17:
-            { return symbol(DartBuiltInWords.AS.value);
-            }
-            // fall through
-          case 99: break;
-          case 18:
-            { return symbol(DartReservedWords.DO.value);
-            }
-            // fall through
-          case 100: break;
-          case 19:
-            { return symbol(DartReservedWords.IF.value);
-            }
-            // fall through
-          case 101: break;
-          case 20:
-            { return symbol(DartReservedWords.IN.value);
-            }
-            // fall through
-          case 102: break;
-          case 21:
-            { return symbol(DartReservedWords.IS.value);
-            }
-            // fall through
-          case 103: break;
-          case 22:
-            { return symbol(DartReservedWords.ON.value);
-            }
-            // fall through
-          case 104: break;
-          case 23:
-            { return symbol(DartOperators.OR.value);
-            }
-            // fall through
-          case 105: break;
-          case 24:
-            { string.append('\"');
-            }
-            // fall through
-          case 106: break;
-          case 25:
-            { string.append('\n');
-            }
-            // fall through
-          case 107: break;
-          case 26:
-            { string.append('\r');
-            }
-            // fall through
           case 108: break;
-          case 27:
-            { string.append('\t');
+          case 17:
+            { return symbol(DartOperators.AND.value, yytext());
             }
             // fall through
           case 109: break;
-          case 28:
-            { return symbol(DartReservedWords.FOR.value);
+          case 18:
+            { return symbol(DartOperators.POWPOW.value, yytext());
             }
             // fall through
           case 110: break;
-          case 29:
-            { return symbol(DartBuiltInWords.GET.value);
+          case 19:
+            { return symbol(DartOperators.PLUSPLUS.value, yytext());
             }
             // fall through
           case 111: break;
-          case 30:
-            { return symbol(DartReservedWords.NEW.value);
+          case 20:
+            { return symbol(DartOperators.PLUSEQ.value, yytext());
             }
             // fall through
           case 112: break;
-          case 31:
-            { return symbol(DartBuiltInWords.SET.value);
+          case 21:
+            { return symbol(DartOperators.MINUSMINUS.value, yytext());
             }
             // fall through
           case 113: break;
-          case 32:
-            { return symbol(DartReservedWords.TRY.value);
+          case 22:
+            { return symbol(DartOperators.MINUSEQ.value, yytext());
             }
             // fall through
           case 114: break;
-          case 33:
-            { return symbol(DartReservedWords.VAR.value);
+          case 23:
+            { return symbol(DartOperators.EQEQ.value, yytext());
             }
             // fall through
           case 115: break;
-          case 34:
-            { return symbol(DartReservedWords.CASE.value);
+          case 24:
+            { return symbol(DartBuiltInWords.AS.value, yytext());
             }
             // fall through
           case 116: break;
-          case 35:
-            { return symbol(DartReservedWords.ELSE.value);
+          case 25:
+            { return symbol(DartReservedWords.DO.value, yytext());
             }
             // fall through
           case 117: break;
-          case 36:
-            { return symbol(DartReservedWords.ENUM.value);
+          case 26:
+            { return symbol(DartReservedWords.IF.value, yytext());
             }
             // fall through
           case 118: break;
-          case 37:
-            { return symbol(DartReservedWords.HIDE.value);
+          case 27:
+            { return symbol(DartReservedWords.IN.value, yytext());
             }
             // fall through
           case 119: break;
-          case 38:
-            { return symbol(DartReservedWords.NULL.value);
+          case 28:
+            { return symbol(DartReservedWords.IS.value, yytext());
             }
             // fall through
           case 120: break;
-          case 39:
-            { return symbol(DartBuiltInWords.PART.value);
+          case 29:
+            { return symbol(DartReservedWords.ON.value, yytext());
             }
             // fall through
           case 121: break;
-          case 40:
-            { return symbol(DartReservedWords.SHOW.value);
+          case 30:
+            { return symbol(DartOperators.OR.value, yytext());
             }
             // fall through
           case 122: break;
-          case 41:
-            { return symbol(DartReservedWords.SYNC.value);
+          case 31:
+            { string.append('\"');
             }
             // fall through
           case 123: break;
-          case 42:
-            { return symbol(DartReservedWords.THIS.value);
+          case 32:
+            { string.append('\n');
             }
             // fall through
           case 124: break;
-          case 43:
-            { return symbol(DartReservedWords.TRUE.value);
+          case 33:
+            { string.append('\r');
             }
             // fall through
           case 125: break;
-          case 44:
-            { return symbol(DartReservedWords.VOID.value);
+          case 34:
+            { string.append('\t');
             }
             // fall through
           case 126: break;
-          case 45:
-            { return symbol(DartReservedWords.WITH.value);
+          case 35:
+            { return symbol(DartReservedWords.FOR.value, yytext());
             }
             // fall through
           case 127: break;
-          case 46:
-            { return symbol(DartReservedWords.ASYNC.value);
+          case 36:
+            { return symbol(DartBuiltInWords.GET.value, yytext());
             }
             // fall through
           case 128: break;
-          case 47:
-            { return symbol(DartReservedWords.AWAIT.value);
+          case 37:
+            { return symbol(DartReservedWords.NEW.value, yytext());
             }
             // fall through
           case 129: break;
-          case 48:
-            { return symbol(DartReservedWords.BREAK.value);
+          case 38:
+            { return symbol(DartBuiltInWords.SET.value, yytext());
             }
             // fall through
           case 130: break;
-          case 49:
-            { return symbol(DartReservedWords.CATCH.value);
+          case 39:
+            { return symbol(DartReservedWords.TRY.value, yytext());
             }
             // fall through
           case 131: break;
-          case 50:
-            { return symbol(DartReservedWords.CLASS.value);
+          case 40:
+            { return symbol(DartReservedWords.VAR.value, yytext());
             }
             // fall through
           case 132: break;
-          case 51:
-            { return symbol(DartReservedWords.CONST.value);
+          case 41:
+            { return symbol(DartReservedWords.CASE.value, yytext());
             }
             // fall through
           case 133: break;
-          case 52:
-            { return symbol(DartReservedWords.FALSE.value);
+          case 42:
+            { return symbol(DartReservedWords.ELSE.value, yytext());
             }
             // fall through
           case 134: break;
-          case 53:
-            { return symbol(DartReservedWords.FINAL.value);
+          case 43:
+            { return symbol(DartReservedWords.ENUM.value, yytext());
             }
             // fall through
           case 135: break;
-          case 54:
-            { return symbol(DartBuiltInWords.MIXIN.value);
+          case 44:
+            { return symbol(DartReservedWords.HIDE.value, yytext());
             }
             // fall through
           case 136: break;
-          case 55:
-            { return symbol(DartReservedWords.SUPER.value);
+          case 45:
+            { return symbol(DartReservedWords.MAIN.value, yytext());
             }
             // fall through
           case 137: break;
-          case 56:
-            { return symbol(DartReservedWords.THROW.value);
+          case 46:
+            { return symbol(DartReservedWords.NULL.value, yytext());
             }
             // fall through
           case 138: break;
-          case 57:
-            { return symbol(DartReservedWords.WHILE.value);
+          case 47:
+            { return symbol(DartBuiltInWords.PART.value, yytext());
             }
             // fall through
           case 139: break;
-          case 58:
-            { return symbol(DartReservedWords.YIELD.value);
+          case 48:
+            { return symbol(DartReservedWords.SHOW.value, yytext());
             }
             // fall through
           case 140: break;
-          case 59:
-            { return symbol(DartReservedWords.ASSERT.value);
+          case 49:
+            { return symbol(DartReservedWords.SYNC.value, yytext());
             }
             // fall through
           case 141: break;
-          case 60:
-            { return symbol(DartBuiltInWords.EXPORT.value);
+          case 50:
+            { return symbol(DartReservedWords.THIS.value, yytext());
             }
             // fall through
           case 142: break;
-          case 61:
-            { return symbol(DartBuiltInWords.IMPORT.value);
+          case 51:
+            { return symbol(DartReservedWords.TRUE.value, yytext());
             }
             // fall through
           case 143: break;
-          case 62:
-            { return symbol(DartReservedWords.RETURN.value);
+          case 52:
+            { return symbol(DartReservedWords.VOID.value, yytext());
             }
             // fall through
           case 144: break;
-          case 63:
-            { return symbol(DartBuiltInWords.STATIC.value);
+          case 53:
+            { return symbol(DartReservedWords.WITH.value, yytext());
             }
             // fall through
           case 145: break;
-          case 64:
-            { return symbol(DartReservedWords.SWITCH.value);
+          case 54:
+            { return symbol(DartReservedWords.ASYNC.value, yytext());
             }
             // fall through
           case 146: break;
-          case 65:
-            { return symbol(DartReservedWords.DEFAULT.value);
+          case 55:
+            { return symbol(DartReservedWords.AWAIT.value, yytext());
             }
             // fall through
           case 147: break;
-          case 66:
-            { return symbol(DartBuiltInWords.DYNAMIC.value);
+          case 56:
+            { return symbol(DartReservedWords.BREAK.value, yytext());
             }
             // fall through
           case 148: break;
-          case 67:
-            { return symbol(DartReservedWords.EXTENDS.value);
+          case 57:
+            { return symbol(DartReservedWords.CATCH.value, yytext());
             }
             // fall through
           case 149: break;
-          case 68:
-            { return symbol(DartBuiltInWords.FACTORY.value);
+          case 58:
+            { return symbol(DartReservedWords.CLASS.value, yytext());
             }
             // fall through
           case 150: break;
-          case 69:
-            { return symbol(DartReservedWords.FINALLY.value);
+          case 59:
+            { return symbol(DartReservedWords.CONST.value, yytext());
             }
             // fall through
           case 151: break;
-          case 70:
-            { return symbol(DartBuiltInWords.LIBRARY.value);
+          case 60:
+            { return symbol(DartReservedWords.FALSE.value, yytext());
             }
             // fall through
           case 152: break;
-          case 71:
-            { return symbol(DartReservedWords.RETHROW.value);
+          case 61:
+            { return symbol(DartReservedWords.FINAL.value, yytext());
             }
             // fall through
           case 153: break;
-          case 72:
-            { return symbol(DartBuiltInWords.TYPEDEF.value);
+          case 62:
+            { return symbol(DartBuiltInWords.MIXIN.value, yytext());
             }
             // fall through
           case 154: break;
-          case 73:
-            { return symbol(DartBuiltInWords.ABSTRACT.value);
+          case 63:
+            { return symbol(DartReservedWords.PRINT.value, yytext());
             }
             // fall through
           case 155: break;
-          case 74:
-            { return symbol(DartReservedWords.CONTINUE.value);
+          case 64:
+            { return symbol(DartReservedWords.SUPER.value, yytext());
             }
             // fall through
           case 156: break;
-          case 75:
-            { return symbol(DartBuiltInWords.DEFERRED.value);
+          case 65:
+            { return symbol(DartReservedWords.THROW.value, yytext());
             }
             // fall through
           case 157: break;
-          case 76:
-            { return symbol(DartBuiltInWords.EXTERNAL.value);
+          case 66:
+            { return symbol(DartReservedWords.WHILE.value, yytext());
             }
             // fall through
           case 158: break;
-          case 77:
-            { return symbol(DartBuiltInWords.FUNCTION.value);
+          case 67:
+            { return symbol(DartReservedWords.YIELD.value, yytext());
             }
             // fall through
           case 159: break;
-          case 78:
-            { return symbol(DartBuiltInWords.OPERATOR.value);
+          case 68:
+            { return symbol(DartReservedWords.ASSERT.value, yytext());
             }
             // fall through
           case 160: break;
-          case 79:
-            { return symbol(DartBuiltInWords.COVARIANT.value);
+          case 69:
+            { return symbol(DartBuiltInWords.EXPORT.value, yytext());
             }
             // fall through
           case 161: break;
-          case 80:
-            { return symbol(DartBuiltInWords.EXTENSION.value);
+          case 70:
+            { return symbol(DartBuiltInWords.IMPORT.value, yytext());
             }
             // fall through
           case 162: break;
-          case 81:
-            { return symbol(DartBuiltInWords.INTERFACE.value);
+          case 71:
+            { return symbol(DartReservedWords.RETURN.value, yytext());
             }
             // fall through
           case 163: break;
-          case 82:
-            { return symbol(DartBuiltInWords.IMPLEMENTS.value);
+          case 72:
+            { return symbol(DartBuiltInWords.STATIC.value, yytext());
             }
             // fall through
           case 164: break;
+          case 73:
+            { return symbol(DartReservedWords.SWITCH.value, yytext());
+            }
+            // fall through
+          case 165: break;
+          case 74:
+            { return symbol(DartReservedWords.DEFAULT.value, yytext());
+            }
+            // fall through
+          case 166: break;
+          case 75:
+            { return symbol(DartBuiltInWords.DYNAMIC.value, yytext());
+            }
+            // fall through
+          case 167: break;
+          case 76:
+            { return symbol(DartReservedWords.EXTENDS.value, yytext());
+            }
+            // fall through
+          case 168: break;
+          case 77:
+            { return symbol(DartBuiltInWords.FACTORY.value, yytext());
+            }
+            // fall through
+          case 169: break;
+          case 78:
+            { return symbol(DartReservedWords.FINALLY.value, yytext());
+            }
+            // fall through
+          case 170: break;
+          case 79:
+            { return symbol(DartBuiltInWords.LIBRARY.value, yytext());
+            }
+            // fall through
+          case 171: break;
+          case 80:
+            { return symbol(DartReservedWords.RETHROW.value, yytext());
+            }
+            // fall through
+          case 172: break;
+          case 81:
+            { return symbol(DartBuiltInWords.TYPEDEF.value, yytext());
+            }
+            // fall through
+          case 173: break;
+          case 82:
+            { return symbol(DartBuiltInWords.ABSTRACT.value, yytext());
+            }
+            // fall through
+          case 174: break;
+          case 83:
+            { return symbol(DartReservedWords.CONTINUE.value, yytext());
+            }
+            // fall through
+          case 175: break;
+          case 84:
+            { return symbol(DartBuiltInWords.DEFERRED.value, yytext());
+            }
+            // fall through
+          case 176: break;
+          case 85:
+            { return symbol(DartBuiltInWords.EXTERNAL.value, yytext());
+            }
+            // fall through
+          case 177: break;
+          case 86:
+            { return symbol(DartBuiltInWords.FUNCTION.value, yytext());
+            }
+            // fall through
+          case 178: break;
+          case 87:
+            { return symbol(DartBuiltInWords.OPERATOR.value, yytext());
+            }
+            // fall through
+          case 179: break;
+          case 88:
+            { return symbol(DartBuiltInWords.COVARIANT.value, yytext());
+            }
+            // fall through
+          case 180: break;
+          case 89:
+            { return symbol(DartBuiltInWords.EXTENSION.value, yytext());
+            }
+            // fall through
+          case 181: break;
+          case 90:
+            { return symbol(DartBuiltInWords.INTERFACE.value, yytext());
+            }
+            // fall through
+          case 182: break;
+          case 91:
+            { return symbol(DartOperators.STRINGLITERAL.value, yytext());
+            }
+            // fall through
+          case 183: break;
+          case 92:
+            { return symbol(DartBuiltInWords.IMPLEMENTS.value, yytext());
+            }
+            // fall through
+          case 184: break;
           default:
             zzScanError(ZZ_NO_MATCH);
         }

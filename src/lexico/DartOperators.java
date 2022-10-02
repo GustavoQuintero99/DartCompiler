@@ -1,4 +1,4 @@
-package dart.compiler;
+package lexico;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -23,7 +23,15 @@ public enum DartOperators {
     MINUSEQ(71),
     PLUSEQ(72),
     RESID(73),
-    STRINGLITERAL(74);
+    STRINGLITERAL(74),
+    SPACE(75),
+    MAIN(76),
+    OPENCODE(77),
+    CLOSECODE(78),
+    OPENPARENT(79),
+    CLOSEPARENT(80),
+    LINEABREAK(81),
+    SEMICOLON(82);
     
     public int value;
     private DartOperators(int value){

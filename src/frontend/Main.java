@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import lexico.AnalisisLexico;
 
 /**
  *
@@ -39,6 +40,7 @@ public class Main extends javax.swing.JFrame {
         jSplitPane1 = new javax.swing.JSplitPane();
         archivos = new javax.swing.JTabbedPane();
         salidas = new javax.swing.JTabbedPane();
+        textArea2 = new java.awt.TextArea();
         jMenuBar1 = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -49,6 +51,8 @@ public class Main extends javax.swing.JFrame {
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem8 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Compilador Gustavo Quintero");
@@ -67,6 +71,9 @@ public class Main extends javax.swing.JFrame {
 
         archivos.setPreferredSize(new java.awt.Dimension(300, 600));
         jSplitPane1.setLeftComponent(archivos);
+
+        salidas.addTab("tab1", textArea2);
+
         jSplitPane1.setRightComponent(salidas);
 
         getContentPane().add(jSplitPane1, java.awt.BorderLayout.CENTER);
@@ -133,6 +140,18 @@ public class Main extends javax.swing.JFrame {
 
         jMenu2.setText("Editar");
         jMenuBar1.add(jMenu2);
+
+        jMenu1.setText("Ejecutar");
+
+        jMenuItem8.setText("Ejecutar");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem8);
+
+        jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
 
@@ -285,6 +304,16 @@ public class Main extends javax.swing.JFrame {
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         saveAll();
     }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        AnalisisLexico analyzer = new AnalisisLexico(); 
+        File file = editor.getArchivo();
+        try{
+            analyzer.runLexer(file, textArea2);
+        }catch(Exception e) {
+            System.out.println(e.toString());
+        }
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
     public void load(File archivo, boolean remove) {
         editor = (Editor) archivos.getSelectedComponent();
         String information = editor.getText();
@@ -375,6 +404,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTabbedPane archivos;
     private javax.swing.JFileChooser dialogoChooser;
     private javax.swing.JMenu fileMenu;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
@@ -384,8 +414,10 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JTabbedPane salidas;
+    private java.awt.TextArea textArea2;
     // End of variables declaration//GEN-END:variables
 }
