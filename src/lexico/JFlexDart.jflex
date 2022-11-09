@@ -135,6 +135,7 @@ DecIntegerLiteral = 0 | [1-9][0-9]*
 <YYINITIAL> "set"              {return symbol(DartBuiltInWords.SET.value, yytext()); }
 <YYINITIAL> "static"           {return symbol(DartBuiltInWords.STATIC.value, yytext()); }
 <YYINITIAL> "typedef"          {return symbol(DartBuiltInWords.TYPEDEF.value, yytext()); }
+<YYINITIAL> "typedef"          {return symbol(DartBuiltInWords.EVAL_ARITMETICA.value, yytext()); }
 <YYINITIAL> (\"(\\.|[^\"]+)*\") {return symbol(DartOperators.STRINGLITERAL.value, yytext()); }
 
 <STRING> {

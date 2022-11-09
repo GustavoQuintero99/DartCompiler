@@ -31,7 +31,8 @@ public enum DartOperators {
     OPENPARENT(79),
     CLOSEPARENT(80),
     LINEABREAK(81),
-    SEMICOLON(82);
+    SEMICOLON(82),
+    EVAL_ARITMETICA(83);
     
     public int value;
     private DartOperators(int value){
