@@ -25,11 +25,11 @@ terminal LINE, QUOTES, DATA_TYPE, STRING, IF, ELSE, DO, WHILE, FOR,
     OPENING_KEY, CLOSING_KEY, OPENING_SQUARE_BRACKET, CLOSING_SQUARE_BRACKET, MAIN, SEMICOLON, IDENTIFIER, NUMBER, ERROR, 
     ABSTRACT, BREAK, CASE, CATCH, CLASS, FINAL, CONST, DEFAULT, FINALLY, FOREACH, GOTO, INTERFACE, NAMESPACE, 
     NULL, OUT, RETURN, STATIC, SWITCH, THROW, TRY, VOID, SYSTEM, WRITELINE, CONSOLE, WRITE, 
-    CONTEXTUAL_OPERATOR, NEW, CLASS_NAME, VAR, OP_ARITMETICA;
+    CONTEXTUAL_OPERATOR, NEW, CLASS_NAME, VAR, OP_ARITMETICA, AND, OR;
 
 // non terminal keys
 non terminal inicio, statement, declaration, for_declaration, if, if_else,
-    while, do_while, for, boolean_statement, for_statement, foreach, foreach_statement, switch;
+    while, do_while, for, boolean_statement, for_statement, foreach, foreach_statement, switch, log_aritmetica;
 
 // start
 start with inicio;
