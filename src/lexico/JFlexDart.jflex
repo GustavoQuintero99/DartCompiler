@@ -3,10 +3,7 @@ package lexico;
 
 
 import java_cup.runtime.*;
-import lexico.DartReservedWords;
-import lexico.DartOperators;
-import lexico.DartBuiltInWords;
-import java_cup.sym;
+import lexico.sym;
 /**
  * Dart Lexer
  */
@@ -51,96 +48,96 @@ DecIntegerLiteral = 0 | [1-9][0-9]*
 %%
 
 /* ops */
-"="                            { return symbol(DartOperators.EQ.value, yytext()); }
-"=="                           { return symbol(DartOperators.EQEQ.value, yytext()); }
-"+"                            { return symbol(DartOperators.PLUS.value, yytext()); }
-"++"                           { return symbol(DartOperators.PLUSPLUS.value, yytext()); }
-"-"                            { return symbol(DartOperators.MINUS.value, yytext()); }
-"--"                           { return symbol(DartOperators.MINUSMINUS.value, yytext()); }
-"*"                            { return symbol(DartOperators.POW.value, yytext()); }
-"**"                           { return symbol(DartOperators.POWPOW.value, yytext()); }
-"&&"                           { return symbol(DartOperators.AND.value, yytext()); }
-"||"                           { return symbol(DartOperators.OR.value, yytext()); }
-"-="                           { return symbol(DartOperators.MINUSEQ.value, yytext()); }
-"+="                           { return symbol(DartOperators.PLUSEQ.value, yytext()); }
-"%"                            { return symbol(DartOperators.RESID.value, yytext()); }
-" "                            { return symbol(DartOperators.SPACE.value, yytext()); }
-"{"                            { return symbol(DartOperators.OPENCODE.value, yytext()); }
-"}"                            { return symbol(DartOperators.CLOSECODE.value, yytext()); }
-"("                            { return symbol(DartOperators.OPENPARENT.value, yytext()); }
-")"                            { return symbol(DartOperators.CLOSEPARENT.value, yytext()); }
-"\n"                           { return symbol(DartOperators.LINEABREAK.value, yytext());}
-";"                            { return symbol(DartOperators.SEMICOLON.value, yytext());}
+"="                            { return symbol(sym.EQ, yytext()); }
+"=="                           { return symbol(sym.EQEQ, yytext()); }
+"+"                            { return symbol(sym.PLUS, yytext()); }
+"++"                           { return symbol(sym.PLUSPLUS, yytext()); }
+"-"                            { return symbol(sym.MINUS, yytext()); }
+"--"                           { return symbol(sym.MINUSMINUS, yytext()); }
+"*"                            { return symbol(sym.POW, yytext()); }
+"**"                           { return symbol(sym.POWPOW, yytext()); }
+"&&"                           { return symbol(sym.AND, yytext()); }
+"||"                           { return symbol(sym.OR, yytext()); }
+"-="                           { return symbol(sym.MINUSEQ, yytext()); }
+"+="                           { return symbol(sym.PLUSEQ, yytext()); }
+"%"                            { return symbol(sym.RESID, yytext()); }
+" "                            { }
+"{"                            { return symbol(sym.OPENCODE, yytext()); }
+"}"                            { return symbol(sym.CLOSECODE, yytext()); }
+"("                            { return symbol(sym.OPENING_PARENT, yytext()); }
+")"                            { return symbol(sym.CLOSING_PARENT, yytext()); }
+"\n"                           { }
+";"                            { return symbol(sym.SEMICOLON, yytext());}
 
-<YYINITIAL> "assert"           {return symbol(DartReservedWords.ASSERT.value, yytext()); }
-<YYINITIAL> "break"            {return symbol(DartReservedWords.BREAK.value, yytext()); }
-<YYINITIAL> "case"             {return symbol(DartReservedWords.CASE.value, yytext()); }
-<YYINITIAL> "catch"            {return symbol(DartReservedWords.CATCH.value, yytext()); }
-<YYINITIAL> "class"            {return symbol(DartReservedWords.CLASS.value, yytext()); }
-<YYINITIAL> "const"            {return symbol(DartReservedWords.CONST.value, yytext()); }
-<YYINITIAL> "continue"         {return symbol(DartReservedWords.CONTINUE.value, yytext()); }
-<YYINITIAL> "default"          {return symbol(DartReservedWords.DEFAULT.value, yytext()); }
-<YYINITIAL> "do"               {return symbol(DartReservedWords.DO.value, yytext()); }
-<YYINITIAL> "else"             {return symbol(DartReservedWords.ELSE.value, yytext()); }
-<YYINITIAL> "enum"             {return symbol(DartReservedWords.ENUM.value, yytext()); }
-<YYINITIAL> "extends"          {return symbol(DartReservedWords.EXTENDS.value, yytext()); }
-<YYINITIAL> "false"            {return symbol(DartReservedWords.FALSE.value, yytext()); }
-<YYINITIAL> "final"            {return symbol(DartReservedWords.FINAL.value, yytext()); }
-<YYINITIAL> "finally"          {return symbol(DartReservedWords.FINALLY.value, yytext()); }
-<YYINITIAL> "for"              {return symbol(DartReservedWords.FOR.value, yytext()); }
-<YYINITIAL> "if"               {return symbol(DartReservedWords.IF.value, yytext()); }
-<YYINITIAL> "in"               {return symbol(DartReservedWords.IN.value, yytext()); }
-<YYINITIAL> "is"               {return symbol(DartReservedWords.IS.value, yytext()); }
-<YYINITIAL> "new"              {return symbol(DartReservedWords.NEW.value, yytext()); }
-<YYINITIAL> "null"             {return symbol(DartReservedWords.NULL.value, yytext()); }
-<YYINITIAL> "rethrow"          {return symbol(DartReservedWords.RETHROW.value, yytext()); }
-<YYINITIAL> "return"           {return symbol(DartReservedWords.RETURN.value, yytext()); }
-<YYINITIAL> "super"            {return symbol(DartReservedWords.SUPER.value, yytext()); }
-<YYINITIAL> "switch"           {return symbol(DartReservedWords.SWITCH.value, yytext()); }
-<YYINITIAL> "this"             {return symbol(DartReservedWords.THIS.value, yytext()); }
-<YYINITIAL> "throw"            {return symbol(DartReservedWords.THROW.value, yytext()); }
-<YYINITIAL> "true"             {return symbol(DartReservedWords.TRUE.value, yytext()); }
-<YYINITIAL> "try"              {return symbol(DartReservedWords.TRY.value, yytext()); }
-<YYINITIAL> "var"              {return symbol(DartReservedWords.VAR.value, yytext()); }
-<YYINITIAL> "void"             {return symbol(DartReservedWords.VOID.value, yytext()); }
-<YYINITIAL> "while"            {return symbol(DartReservedWords.WHILE.value, yytext()); }
-<YYINITIAL> "with"             {return symbol(DartReservedWords.WITH.value, yytext()); }
-<YYINITIAL> "await"            {return symbol(DartReservedWords.AWAIT.value, yytext()); }
-<YYINITIAL> "yield"            {return symbol(DartReservedWords.YIELD.value, yytext()); }
-<YYINITIAL> "async"            {return symbol(DartReservedWords.ASYNC.value, yytext()); }
-<YYINITIAL> "hide"             {return symbol(DartReservedWords.HIDE.value, yytext()); }
-<YYINITIAL> "on"               {return symbol(DartReservedWords.ON.value, yytext()); }
-<YYINITIAL> "show"             {return symbol(DartReservedWords.SHOW.value, yytext()); }
-<YYINITIAL> "sync"             {return symbol(DartReservedWords.SYNC.value, yytext()); }
-<YYINITIAL> "main"             {return symbol(DartReservedWords.MAIN.value, yytext()); }
-<YYINITIAL> "print"            {return symbol(DartReservedWords.PRINT.value, yytext()); }
-<YYINITIAL> "abstract"         {return symbol(DartBuiltInWords.ABSTRACT.value, yytext()); }
-<YYINITIAL> "as"               {return symbol(DartBuiltInWords.AS.value, yytext()); }
-<YYINITIAL> "covariant"        {return symbol(DartBuiltInWords.COVARIANT.value, yytext()); }
-<YYINITIAL> "deferred"         {return symbol(DartBuiltInWords.DEFERRED.value, yytext()); }
-<YYINITIAL> "dynamic"          {return symbol(DartBuiltInWords.DYNAMIC.value, yytext()); }
-<YYINITIAL> "export"           {return symbol(DartBuiltInWords.EXPORT.value, yytext()); }
-<YYINITIAL> "extension"        {return symbol(DartBuiltInWords.EXTENSION.value, yytext()); }
-<YYINITIAL> "external"         {return symbol(DartBuiltInWords.EXTERNAL.value, yytext()); }
-<YYINITIAL> "factory"          {return symbol(DartBuiltInWords.FACTORY.value, yytext()); }
-<YYINITIAL> "function"         {return symbol(DartBuiltInWords.FUNCTION.value, yytext()); }
-<YYINITIAL> "get"              {return symbol(DartBuiltInWords.GET.value, yytext()); }
-<YYINITIAL> "implements"       {return symbol(DartBuiltInWords.IMPLEMENTS.value, yytext()); }
-<YYINITIAL> "import"           {return symbol(DartBuiltInWords.IMPORT.value, yytext()); }
-<YYINITIAL> "interface"        {return symbol(DartBuiltInWords.INTERFACE.value, yytext()); }
-<YYINITIAL> "library"          {return symbol(DartBuiltInWords.LIBRARY.value, yytext()); }
-<YYINITIAL> "mixin"            {return symbol(DartBuiltInWords.MIXIN.value, yytext()); }
-<YYINITIAL> "operator"         {return symbol(DartBuiltInWords.OPERATOR.value, yytext()); }
-<YYINITIAL> "part"             {return symbol(DartBuiltInWords.PART.value, yytext()); }
-<YYINITIAL> "set"              {return symbol(DartBuiltInWords.SET.value, yytext()); }
-<YYINITIAL> "static"           {return symbol(DartBuiltInWords.STATIC.value, yytext()); }
-<YYINITIAL> "typedef"          {return symbol(DartBuiltInWords.TYPEDEF.value, yytext()); }
-<YYINITIAL> "typedef"          {return symbol(DartBuiltInWords.EVAL_ARITMETICA.value, yytext()); }
-<YYINITIAL> (\"(\\.|[^\"]+)*\") {return symbol(DartOperators.STRINGLITERAL.value, yytext()); }
+<YYINITIAL> "assert"           {return symbol(sym.ASSERT, yytext()); }
+<YYINITIAL> "break"            {return symbol(sym.BREAK, yytext()); }
+<YYINITIAL> "case"             {return symbol(sym.CASE, yytext()); }
+<YYINITIAL> "catch"            {return symbol(sym.CATCH, yytext()); }
+<YYINITIAL> "class"            {return symbol(sym.CLASS, yytext()); }
+<YYINITIAL> "const"            {return symbol(sym.CONST, yytext()); }
+<YYINITIAL> "continue"         {return symbol(sym.CONTINUE, yytext()); }
+<YYINITIAL> "default"          {return symbol(sym.DEFAULT, yytext()); }
+<YYINITIAL> "do"               {return symbol(sym.DO, yytext()); }
+<YYINITIAL> "else"             {return symbol(sym.ELSE, yytext()); }
+<YYINITIAL> "enum"             {return symbol(sym.ENUM, yytext()); }
+<YYINITIAL> "extends"          {return symbol(sym.EXTENDS, yytext()); }
+<YYINITIAL> "false"            {return symbol(sym.FALSE, yytext()); }
+<YYINITIAL> "final"            {return symbol(sym.FINAL, yytext()); }
+<YYINITIAL> "finally"          {return symbol(sym.FINALLY, yytext()); }
+<YYINITIAL> "for"              {return symbol(sym.FOR, yytext()); }
+<YYINITIAL> "if"               {return symbol(sym.IF, yytext()); }
+<YYINITIAL> "in"               {return symbol(sym.IN, yytext()); }
+<YYINITIAL> "is"               {return symbol(sym.IS, yytext()); }
+<YYINITIAL> "new"              {return symbol(sym.NEW, yytext()); }
+<YYINITIAL> "null"             {return symbol(sym.NULL, yytext()); }
+<YYINITIAL> "rethrow"          {return symbol(sym.RETHROW, yytext()); }
+<YYINITIAL> "return"           {return symbol(sym.RETURN, yytext()); }
+<YYINITIAL> "super"            {return symbol(sym.SUPER, yytext()); }
+<YYINITIAL> "switch"           {return symbol(sym.SWITCH, yytext()); }
+<YYINITIAL> "this"             {return symbol(sym.THIS, yytext()); }
+<YYINITIAL> "throw"            {return symbol(sym.THROW, yytext()); }
+<YYINITIAL> "true"             {return symbol(sym.TRUE, yytext()); }
+<YYINITIAL> "try"              {return symbol(sym.TRY, yytext()); }
+<YYINITIAL> "var"              {return symbol(sym.VAR, yytext()); }
+<YYINITIAL> "void"             {return symbol(sym.VOID, yytext()); }
+<YYINITIAL> "while"            {return symbol(sym.WHILE, yytext()); }
+<YYINITIAL> "with"             {return symbol(sym.WITH, yytext()); }
+<YYINITIAL> "await"            {return symbol(sym.AWAIT, yytext()); }
+<YYINITIAL> "yield"            {return symbol(sym.YIELD, yytext()); }
+<YYINITIAL> "async"            {return symbol(sym.ASYNC, yytext()); }
+<YYINITIAL> "hide"             {return symbol(sym.HIDE, yytext()); }
+<YYINITIAL> "on"               {return symbol(sym.ON, yytext()); }
+<YYINITIAL> "show"             {return symbol(sym.SHOW, yytext()); }
+<YYINITIAL> "sync"             {return symbol(sym.SYNC, yytext()); }
+<YYINITIAL> "main"             {return symbol(sym.MAIN, yytext()); }
+<YYINITIAL> "print"            {return symbol(sym.PRINT, yytext()); }
+<YYINITIAL> "abstract"         {return symbol(sym.ABSTRACT, yytext()); }
+<YYINITIAL> "as"               {return symbol(sym.AS, yytext()); }
+<YYINITIAL> "covariant"        {return symbol(sym.COVARIANT, yytext()); }
+<YYINITIAL> "deferred"         {return symbol(sym.DEFERRED, yytext()); }
+<YYINITIAL> "dynamic"          {return symbol(sym.DYNAMIC, yytext()); }
+<YYINITIAL> "export"           {return symbol(sym.EXPORT, yytext()); }
+<YYINITIAL> "extension"        {return symbol(sym.EXTENSION, yytext()); }
+<YYINITIAL> "external"         {return symbol(sym.EXTERNAL, yytext()); }
+<YYINITIAL> "factory"          {return symbol(sym.FACTORY, yytext()); }
+<YYINITIAL> "function"         {return symbol(sym.FUNCTION, yytext()); }
+<YYINITIAL> "get"              {return symbol(sym.GET, yytext()); }
+<YYINITIAL> "implements"       {return symbol(sym.IMPLEMENTS, yytext()); }
+<YYINITIAL> "import"           {return symbol(sym.IMPORT, yytext()); }
+<YYINITIAL> "interface"        {return symbol(sym.INTERFACE, yytext()); }
+<YYINITIAL> "library"          {return symbol(sym.LIBRARY, yytext()); }
+<YYINITIAL> "mixin"            {return symbol(sym.MIXIN, yytext()); }
+<YYINITIAL> "operator"         {return symbol(sym.OPERATOR, yytext()); }
+<YYINITIAL> "part"             {return symbol(sym.PART, yytext()); }
+<YYINITIAL> "set"              {return symbol(sym.SET, yytext()); }
+<YYINITIAL> "static"           {return symbol(sym.STATIC, yytext()); }
+<YYINITIAL> "typedef"          {return symbol(sym.TYPEDEF, yytext()); }
+<YYINITIAL> "typedef"          {return symbol(sym.EVAL_ARITMETICA, yytext()); }
+<YYINITIAL> (\"(\\.|[^\"]+)*\") {return symbol(sym.STRINGLITERAL, yytext()); }
 
 <STRING> {
   \"                             { yybegin(YYINITIAL); 
-                                   return symbol(DartOperators.STRINGLITERAL.value, 
+                                   return symbol(sym.STRINGLITERAL, 
                                    string.toString()); }
   [^\n\r\"\\]+                   { string.append( yytext() ); }
   \\t                            { string.append('\t'); }

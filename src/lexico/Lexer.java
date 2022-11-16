@@ -5,10 +5,7 @@ package lexico;
 
 
 import java_cup.runtime.*;
-import lexico.DartReservedWords;
-import lexico.DartOperators;
-import lexico.DartBuiltInWords;
-import java_cup.sym;
+import lexico.sym;
 /**
  * Dart Lexer
  */
@@ -242,28 +239,28 @@ class Lexer implements java_cup.runtime.Scanner {
 
   private static final String ZZ_ACTION_PACKED_0 =
     "\2\0\1\1\1\2\1\3\1\4\1\5\1\6\2\1"+
-    "\1\7\1\10\1\11\1\12\1\13\1\14\1\15\25\1"+
-    "\1\16\1\3\1\4\1\5\1\6\2\16\1\7\1\10"+
-    "\1\11\1\12\1\13\1\14\1\15\1\17\1\20\1\21"+
-    "\1\22\1\23\1\24\1\25\1\26\1\27\1\30\1\31"+
-    "\25\0\1\32\3\0\1\33\1\34\1\35\2\0\1\36"+
-    "\20\0\1\37\1\0\1\21\1\22\1\23\1\24\1\25"+
-    "\1\26\1\27\1\30\1\40\1\41\1\42\1\43\4\0"+
-    "\1\44\13\0\1\45\14\0\1\46\7\0\1\47\11\0"+
-    "\1\50\1\0\1\51\1\37\5\0\1\52\1\0\1\53"+
-    "\1\0\1\54\1\55\4\0\1\56\1\0\1\57\2\0"+
-    "\1\60\5\0\1\61\2\0\1\62\12\0\1\63\3\0"+
-    "\1\64\1\65\1\0\1\66\1\0\1\67\1\0\1\70"+
-    "\1\0\1\71\6\0\1\72\1\0\1\73\1\74\1\75"+
-    "\1\76\13\0\1\77\1\100\1\0\1\101\1\102\1\103"+
-    "\1\104\1\105\1\0\1\106\1\107\3\0\1\110\1\0"+
-    "\1\111\7\0\1\112\11\0\1\113\1\114\1\115\2\0"+
-    "\1\116\3\0\1\117\1\0\1\120\1\121\1\122\1\0"+
-    "\1\123\1\124\1\0\1\125\1\0\1\126\2\0\1\127"+
-    "\1\130\1\131\1\132\1\133\1\0\1\134";
+    "\1\7\1\10\1\11\1\12\1\13\1\14\25\1\1\15"+
+    "\1\3\1\4\1\5\1\6\2\15\1\7\1\2\1\10"+
+    "\1\11\1\12\1\13\1\14\1\16\1\17\1\20\1\21"+
+    "\1\22\1\23\1\24\1\25\1\26\1\27\1\30\25\0"+
+    "\1\31\3\0\1\32\1\33\1\34\2\0\1\35\20\0"+
+    "\1\36\1\0\1\20\1\21\1\22\1\23\1\24\1\25"+
+    "\1\26\1\27\1\37\1\40\1\41\1\42\4\0\1\43"+
+    "\13\0\1\44\14\0\1\45\7\0\1\46\11\0\1\47"+
+    "\1\0\1\50\1\36\5\0\1\51\1\0\1\52\1\0"+
+    "\1\53\1\54\4\0\1\55\1\0\1\56\2\0\1\57"+
+    "\5\0\1\60\2\0\1\61\12\0\1\62\3\0\1\63"+
+    "\1\64\1\0\1\65\1\0\1\66\1\0\1\67\1\0"+
+    "\1\70\6\0\1\71\1\0\1\72\1\73\1\74\1\75"+
+    "\13\0\1\76\1\77\1\0\1\100\1\101\1\102\1\103"+
+    "\1\104\1\0\1\105\1\106\3\0\1\107\1\0\1\110"+
+    "\7\0\1\111\11\0\1\112\1\113\1\114\2\0\1\115"+
+    "\3\0\1\116\1\0\1\117\1\120\1\121\1\0\1\122"+
+    "\1\123\1\0\1\124\1\0\1\125\2\0\1\126\1\127"+
+    "\1\130\1\131\1\132\1\0\1\133";
 
   private static int [] zzUnpackAction() {
-    int [] result = new int[316];
+    int [] result = new int[315];
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -290,47 +287,47 @@ class Lexer implements java_cup.runtime.Scanner {
   private static final String ZZ_ROWMAP_PACKED_0 =
     "\0\0\0\51\0\122\0\122\0\173\0\244\0\315\0\366"+
     "\0\u011f\0\u0148\0\122\0\122\0\122\0\122\0\122\0\122"+
-    "\0\122\0\u0171\0\u019a\0\u01c3\0\u01ec\0\u0215\0\u023e\0\u0267"+
-    "\0\u0290\0\u02b9\0\u02e2\0\u030b\0\u0334\0\u035d\0\u0386\0\u03af"+
-    "\0\u03d8\0\u0401\0\u042a\0\u0453\0\u047c\0\u04a5\0\u04ce\0\u04f7"+
-    "\0\u0520\0\u0549\0\u0572\0\u059b\0\u05c4\0\u04ce\0\u04ce\0\u04ce"+
-    "\0\u04ce\0\u04ce\0\u04ce\0\u04ce\0\122\0\u05ed\0\122\0\122"+
-    "\0\122\0\122\0\122\0\122\0\122\0\122\0\u0616\0\u063f"+
-    "\0\u0668\0\u0691\0\u06ba\0\u06e3\0\u070c\0\u0735\0\u075e\0\u0787"+
-    "\0\u07b0\0\u07d9\0\u0802\0\u082b\0\u0854\0\u087d\0\u08a6\0\u08cf"+
-    "\0\u08f8\0\u0921\0\u094a\0\u0973\0\122\0\u099c\0\u09c5\0\u09ee"+
-    "\0\122\0\u0a17\0\122\0\u0a40\0\u0a69\0\122\0\u0a92\0\u0abb"+
-    "\0\u0ae4\0\u0b0d\0\u0b36\0\u0b5f\0\u0b88\0\u0bb1\0\u0bda\0\u0c03"+
-    "\0\u0c2c\0\u0c55\0\u0c7e\0\u0ca7\0\u0cd0\0\u04a5\0\122\0\u0cf9"+
-    "\0\u04ce\0\u04ce\0\u04ce\0\u04ce\0\u04ce\0\u04ce\0\u04ce\0\u04ce"+
-    "\0\122\0\122\0\122\0\122\0\u0d22\0\u0d4b\0\u0d74\0\u0d9d"+
-    "\0\122\0\u0dc6\0\u0def\0\u0e18\0\u0e41\0\u0e6a\0\u0e93\0\u0ebc"+
-    "\0\u0ee5\0\u0f0e\0\u0f37\0\u0f60\0\122\0\u0f89\0\u0fb2\0\u0fdb"+
-    "\0\u1004\0\u102d\0\u1056\0\u107f\0\u10a8\0\u10d1\0\u10fa\0\u1123"+
-    "\0\u114c\0\122\0\u1175\0\u119e\0\u11c7\0\u11f0\0\u1219\0\u1242"+
-    "\0\u126b\0\122\0\u1294\0\u12bd\0\u12e6\0\u130f\0\u1338\0\u1361"+
-    "\0\u138a\0\u13b3\0\u13dc\0\122\0\u1405\0\122\0\u04a5\0\u142e"+
-    "\0\u1457\0\u1480\0\u14a9\0\u14d2\0\122\0\u14fb\0\122\0\u1524"+
-    "\0\122\0\122\0\u154d\0\u1576\0\u159f\0\u15c8\0\122\0\u15f1"+
-    "\0\122\0\u161a\0\u1643\0\122\0\u166c\0\u1695\0\u16be\0\u16e7"+
-    "\0\u1710\0\122\0\u1739\0\u1762\0\122\0\u178b\0\u17b4\0\u17dd"+
-    "\0\u1806\0\u182f\0\u1858\0\u1881\0\u18aa\0\u18d3\0\u18fc\0\122"+
-    "\0\u1925\0\u194e\0\u1977\0\122\0\122\0\u19a0\0\122\0\u19c9"+
-    "\0\122\0\u19f2\0\122\0\u1a1b\0\122\0\u1a44\0\u1a6d\0\u1a96"+
-    "\0\u1abf\0\u1ae8\0\u1b11\0\122\0\u1b3a\0\122\0\122\0\122"+
-    "\0\122\0\u1b63\0\u1b8c\0\u1bb5\0\u1bde\0\u1c07\0\u1c30\0\u1c59"+
-    "\0\u1c82\0\u1cab\0\u1cd4\0\u1cfd\0\122\0\u1d26\0\u1d4f\0\122"+
-    "\0\122\0\122\0\122\0\122\0\u1d78\0\122\0\122\0\u1da1"+
-    "\0\u1dca\0\u1df3\0\122\0\u1e1c\0\122\0\u1e45\0\u1e6e\0\u1e97"+
-    "\0\u1ec0\0\u1ee9\0\u1f12\0\u1f3b\0\122\0\u1f64\0\u1f8d\0\u1fb6"+
-    "\0\u1fdf\0\u2008\0\u2031\0\u205a\0\u2083\0\u20ac\0\122\0\122"+
-    "\0\122\0\u20d5\0\u20fe\0\122\0\u2127\0\u2150\0\u2179\0\122"+
-    "\0\u21a2\0\122\0\122\0\122\0\u21cb\0\122\0\122\0\u21f4"+
-    "\0\122\0\u221d\0\122\0\u2246\0\u226f\0\122\0\122\0\122"+
-    "\0\122\0\122\0\u2298\0\122";
+    "\0\u0171\0\u019a\0\u01c3\0\u01ec\0\u0215\0\u023e\0\u0267\0\u0290"+
+    "\0\u02b9\0\u02e2\0\u030b\0\u0334\0\u035d\0\u0386\0\u03af\0\u03d8"+
+    "\0\u0401\0\u042a\0\u0453\0\u047c\0\u04a5\0\u04ce\0\u04f7\0\u0520"+
+    "\0\u0549\0\u0572\0\u059b\0\u05c4\0\u04ce\0\u04ce\0\u04ce\0\u04ce"+
+    "\0\u04ce\0\u04ce\0\u04ce\0\122\0\u05ed\0\122\0\122\0\122"+
+    "\0\122\0\122\0\122\0\122\0\122\0\u0616\0\u063f\0\u0668"+
+    "\0\u0691\0\u06ba\0\u06e3\0\u070c\0\u0735\0\u075e\0\u0787\0\u07b0"+
+    "\0\u07d9\0\u0802\0\u082b\0\u0854\0\u087d\0\u08a6\0\u08cf\0\u08f8"+
+    "\0\u0921\0\u094a\0\u0973\0\122\0\u099c\0\u09c5\0\u09ee\0\122"+
+    "\0\u0a17\0\122\0\u0a40\0\u0a69\0\122\0\u0a92\0\u0abb\0\u0ae4"+
+    "\0\u0b0d\0\u0b36\0\u0b5f\0\u0b88\0\u0bb1\0\u0bda\0\u0c03\0\u0c2c"+
+    "\0\u0c55\0\u0c7e\0\u0ca7\0\u0cd0\0\u04a5\0\122\0\u0cf9\0\u04ce"+
+    "\0\u04ce\0\u04ce\0\u04ce\0\u04ce\0\u04ce\0\u04ce\0\u04ce\0\122"+
+    "\0\122\0\122\0\122\0\u0d22\0\u0d4b\0\u0d74\0\u0d9d\0\122"+
+    "\0\u0dc6\0\u0def\0\u0e18\0\u0e41\0\u0e6a\0\u0e93\0\u0ebc\0\u0ee5"+
+    "\0\u0f0e\0\u0f37\0\u0f60\0\122\0\u0f89\0\u0fb2\0\u0fdb\0\u1004"+
+    "\0\u102d\0\u1056\0\u107f\0\u10a8\0\u10d1\0\u10fa\0\u1123\0\u114c"+
+    "\0\122\0\u1175\0\u119e\0\u11c7\0\u11f0\0\u1219\0\u1242\0\u126b"+
+    "\0\122\0\u1294\0\u12bd\0\u12e6\0\u130f\0\u1338\0\u1361\0\u138a"+
+    "\0\u13b3\0\u13dc\0\122\0\u1405\0\122\0\u04a5\0\u142e\0\u1457"+
+    "\0\u1480\0\u14a9\0\u14d2\0\122\0\u14fb\0\122\0\u1524\0\122"+
+    "\0\122\0\u154d\0\u1576\0\u159f\0\u15c8\0\122\0\u15f1\0\122"+
+    "\0\u161a\0\u1643\0\122\0\u166c\0\u1695\0\u16be\0\u16e7\0\u1710"+
+    "\0\122\0\u1739\0\u1762\0\122\0\u178b\0\u17b4\0\u17dd\0\u1806"+
+    "\0\u182f\0\u1858\0\u1881\0\u18aa\0\u18d3\0\u18fc\0\122\0\u1925"+
+    "\0\u194e\0\u1977\0\122\0\122\0\u19a0\0\122\0\u19c9\0\122"+
+    "\0\u19f2\0\122\0\u1a1b\0\122\0\u1a44\0\u1a6d\0\u1a96\0\u1abf"+
+    "\0\u1ae8\0\u1b11\0\122\0\u1b3a\0\122\0\122\0\122\0\122"+
+    "\0\u1b63\0\u1b8c\0\u1bb5\0\u1bde\0\u1c07\0\u1c30\0\u1c59\0\u1c82"+
+    "\0\u1cab\0\u1cd4\0\u1cfd\0\122\0\u1d26\0\u1d4f\0\122\0\122"+
+    "\0\122\0\122\0\122\0\u1d78\0\122\0\122\0\u1da1\0\u1dca"+
+    "\0\u1df3\0\122\0\u1e1c\0\122\0\u1e45\0\u1e6e\0\u1e97\0\u1ec0"+
+    "\0\u1ee9\0\u1f12\0\u1f3b\0\122\0\u1f64\0\u1f8d\0\u1fb6\0\u1fdf"+
+    "\0\u2008\0\u2031\0\u205a\0\u2083\0\u20ac\0\122\0\122\0\122"+
+    "\0\u20d5\0\u20fe\0\122\0\u2127\0\u2150\0\u2179\0\122\0\u21a2"+
+    "\0\122\0\122\0\122\0\u21cb\0\122\0\122\0\u21f4\0\122"+
+    "\0\u221d\0\122\0\u2246\0\u226f\0\122\0\122\0\122\0\122"+
+    "\0\122\0\u2298\0\122";
 
   private static int [] zzUnpackRowMap() {
-    int [] result = new int[316];
+    int [] result = new int[315];
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -354,81 +351,81 @@ class Lexer implements java_cup.runtime.Scanner {
 
   private static final String ZZ_TRANS_PACKED_0 =
     "\2\3\1\4\1\5\1\6\1\7\1\10\1\11\1\12"+
-    "\1\13\1\14\1\15\1\16\1\17\1\20\1\21\1\22"+
-    "\1\23\1\24\1\25\1\26\1\27\1\3\1\30\1\31"+
-    "\1\32\1\33\1\34\1\35\1\3\1\36\1\37\1\40"+
-    "\1\3\1\41\1\42\1\43\1\44\1\45\1\46\1\3"+
-    "\1\47\1\3\1\4\1\50\1\51\1\52\1\53\1\54"+
-    "\1\55\1\56\1\57\1\60\1\61\1\62\1\63\1\64"+
-    "\27\47\1\65\1\66\54\0\1\67\51\0\1\70\50\0"+
-    "\1\71\1\72\47\0\1\73\1\0\1\74\51\0\1\75"+
-    "\51\0\1\76\61\0\1\77\3\0\1\100\15\0\1\101"+
-    "\27\0\1\102\1\0\1\103\3\0\1\104\4\0\1\105"+
-    "\4\0\1\106\1\107\36\0\1\110\1\0\1\111\5\0"+
-    "\1\112\31\0\1\113\51\0\1\114\4\0\1\115\11\0"+
-    "\1\116\31\0\1\117\45\0\1\120\10\0\1\121\1\122"+
-    "\52\0\1\123\50\0\1\124\47\0\1\125\10\0\1\126"+
-    "\26\0\1\127\12\0\1\130\34\0\1\131\11\0\1\132"+
-    "\3\0\1\133\1\134\32\0\1\135\7\0\1\136\7\0"+
-    "\1\137\26\0\1\140\11\0\1\141\1\0\1\142\1\143"+
-    "\33\0\1\144\13\0\1\145\50\0\1\146\44\0\1\147"+
-    "\3\0\1\150\34\0\1\151\2\0\1\152\45\0\1\153"+
-    "\11\0\1\154\40\0\1\155\26\0\47\156\1\157\1\160"+
-    "\1\47\2\0\44\47\2\0\1\47\2\0\1\161\43\47"+
-    "\2\0\1\47\2\0\1\47\1\162\42\47\2\0\1\47"+
-    "\2\0\1\47\1\163\1\164\41\47\2\0\1\47\2\0"+
-    "\1\47\1\165\1\47\1\166\40\47\2\0\1\47\2\0"+
-    "\4\47\1\167\37\47\2\0\1\47\2\0\5\47\1\170"+
-    "\36\47\25\0\1\171\1\172\6\0\1\173\13\0\1\174"+
-    "\22\0\1\175\20\0\1\176\27\0\1\177\47\0\1\200"+
-    "\54\0\1\201\44\0\1\202\62\0\1\203\62\0\1\204"+
-    "\37\0\1\205\51\0\1\206\35\0\1\207\64\0\1\210"+
-    "\37\0\1\211\17\0\1\212\30\0\1\213\61\0\1\214"+
-    "\4\0\1\215\31\0\1\216\10\0\1\217\60\0\1\220"+
-    "\26\0\1\221\47\0\1\222\2\0\1\223\44\0\1\224"+
-    "\63\0\1\225\11\0\1\226\41\0\1\227\37\0\1\230"+
-    "\45\0\1\231\71\0\1\232\36\0\1\233\43\0\1\234"+
-    "\70\0\1\235\43\0\1\236\44\0\1\237\44\0\1\240"+
-    "\1\0\1\241\42\0\1\242\60\0\1\243\50\0\1\244"+
-    "\51\0\1\245\55\0\1\246\31\0\1\247\62\0\1\250"+
-    "\40\0\1\251\47\0\1\252\61\0\1\253\37\0\1\254"+
-    "\61\0\1\255\40\0\1\256\24\0\47\156\1\257\1\160"+
-    "\22\0\1\260\61\0\1\261\41\0\1\262\60\0\1\263"+
-    "\40\0\1\264\67\0\1\265\27\0\1\266\55\0\1\267"+
-    "\45\0\1\270\46\0\1\271\66\0\1\272\32\0\1\273"+
-    "\60\0\1\274\46\0\1\275\4\0\1\276\35\0\1\277"+
-    "\60\0\1\300\37\0\1\301\51\0\1\302\46\0\1\303"+
-    "\52\0\1\304\55\0\1\305\42\0\1\306\50\0\1\307"+
-    "\2\0\1\310\44\0\1\311\52\0\1\312\51\0\1\313"+
-    "\50\0\1\314\56\0\1\315\41\0\1\316\57\0\1\317"+
-    "\1\320\36\0\1\321\1\0\1\322\46\0\1\323\54\0"+
-    "\1\324\45\0\1\325\47\0\1\326\57\0\1\327\54\0"+
-    "\1\330\51\0\1\331\45\0\1\332\50\0\1\333\47\0"+
-    "\1\334\44\0\1\335\57\0\1\336\53\0\1\337\35\0"+
-    "\1\340\54\0\1\341\44\0\1\342\51\0\1\343\60\0"+
-    "\1\344\37\0\1\345\54\0\1\346\44\0\1\347\7\0"+
-    "\1\350\40\0\1\351\50\0\1\352\50\0\1\353\70\0"+
-    "\1\354\43\0\1\355\40\0\1\356\52\0\1\357\41\0"+
-    "\1\360\53\0\1\361\60\0\1\362\37\0\1\363\45\0"+
-    "\1\364\50\0\1\365\53\0\1\366\47\0\1\367\51\0"+
-    "\1\370\62\0\1\371\36\0\1\372\65\0\1\373\42\0"+
-    "\1\374\40\0\1\375\57\0\1\376\43\0\1\377\57\0"+
-    "\1\u0100\53\0\1\u0101\34\0\1\u0102\52\0\1\u0103\50\0"+
-    "\1\u0104\44\0\1\u0105\57\0\1\u0106\51\0\1\u0107\53\0"+
-    "\1\u0108\36\0\1\u0109\14\0\1\u010a\36\0\1\u010b\56\0"+
-    "\1\u010c\51\0\1\u010d\37\0\1\u010e\61\0\1\u010f\51\0"+
-    "\1\u0110\37\0\1\u0111\51\0\1\u0112\63\0\1\u0113\51\0"+
-    "\1\u0114\34\0\1\u0115\55\0\1\u0116\42\0\1\u0117\61\0"+
-    "\1\u0118\37\0\1\u0119\56\0\1\u011a\53\0\1\u011b\43\0"+
-    "\1\u011c\41\0\1\u011d\64\0\1\u011e\35\0\1\u011f\72\0"+
-    "\1\u0120\44\0\1\u0121\46\0\1\u0122\33\0\1\u0123\72\0"+
-    "\1\u0124\40\0\1\u0125\36\0\1\u0126\52\0\1\u0127\52\0"+
-    "\1\u0128\46\0\1\u0129\55\0\1\u012a\63\0\1\u012b\50\0"+
-    "\1\u012c\40\0\1\u012d\42\0\1\u012e\55\0\1\u012f\51\0"+
-    "\1\u0130\40\0\1\u0131\61\0\1\u0132\40\0\1\u0133\54\0"+
-    "\1\u0134\54\0\1\u0135\53\0\1\u0136\45\0\1\u0137\50\0"+
-    "\1\u0138\41\0\1\u0139\46\0\1\u013a\52\0\1\u013b\45\0"+
-    "\1\u013c\27\0";
+    "\1\13\1\4\1\14\1\15\1\16\1\17\1\20\1\21"+
+    "\1\22\1\23\1\24\1\25\1\26\1\3\1\27\1\30"+
+    "\1\31\1\32\1\33\1\34\1\3\1\35\1\36\1\37"+
+    "\1\3\1\40\1\41\1\42\1\43\1\44\1\45\1\3"+
+    "\1\46\1\3\1\4\1\47\1\50\1\51\1\52\1\53"+
+    "\1\54\1\55\1\56\1\57\1\60\1\61\1\62\1\63"+
+    "\27\46\1\64\1\65\54\0\1\66\51\0\1\67\50\0"+
+    "\1\70\1\71\47\0\1\72\1\0\1\73\51\0\1\74"+
+    "\51\0\1\75\61\0\1\76\3\0\1\77\15\0\1\100"+
+    "\27\0\1\101\1\0\1\102\3\0\1\103\4\0\1\104"+
+    "\4\0\1\105\1\106\36\0\1\107\1\0\1\110\5\0"+
+    "\1\111\31\0\1\112\51\0\1\113\4\0\1\114\11\0"+
+    "\1\115\31\0\1\116\45\0\1\117\10\0\1\120\1\121"+
+    "\52\0\1\122\50\0\1\123\47\0\1\124\10\0\1\125"+
+    "\26\0\1\126\12\0\1\127\34\0\1\130\11\0\1\131"+
+    "\3\0\1\132\1\133\32\0\1\134\7\0\1\135\7\0"+
+    "\1\136\26\0\1\137\11\0\1\140\1\0\1\141\1\142"+
+    "\33\0\1\143\13\0\1\144\50\0\1\145\44\0\1\146"+
+    "\3\0\1\147\34\0\1\150\2\0\1\151\45\0\1\152"+
+    "\11\0\1\153\40\0\1\154\26\0\47\155\1\156\1\157"+
+    "\1\46\2\0\44\46\2\0\1\46\2\0\1\160\43\46"+
+    "\2\0\1\46\2\0\1\46\1\161\42\46\2\0\1\46"+
+    "\2\0\1\46\1\162\1\163\41\46\2\0\1\46\2\0"+
+    "\1\46\1\164\1\46\1\165\40\46\2\0\1\46\2\0"+
+    "\4\46\1\166\37\46\2\0\1\46\2\0\5\46\1\167"+
+    "\36\46\25\0\1\170\1\171\6\0\1\172\13\0\1\173"+
+    "\22\0\1\174\20\0\1\175\27\0\1\176\47\0\1\177"+
+    "\54\0\1\200\44\0\1\201\62\0\1\202\62\0\1\203"+
+    "\37\0\1\204\51\0\1\205\35\0\1\206\64\0\1\207"+
+    "\37\0\1\210\17\0\1\211\30\0\1\212\61\0\1\213"+
+    "\4\0\1\214\31\0\1\215\10\0\1\216\60\0\1\217"+
+    "\26\0\1\220\47\0\1\221\2\0\1\222\44\0\1\223"+
+    "\63\0\1\224\11\0\1\225\41\0\1\226\37\0\1\227"+
+    "\45\0\1\230\71\0\1\231\36\0\1\232\43\0\1\233"+
+    "\70\0\1\234\43\0\1\235\44\0\1\236\44\0\1\237"+
+    "\1\0\1\240\42\0\1\241\60\0\1\242\50\0\1\243"+
+    "\51\0\1\244\55\0\1\245\31\0\1\246\62\0\1\247"+
+    "\40\0\1\250\47\0\1\251\61\0\1\252\37\0\1\253"+
+    "\61\0\1\254\40\0\1\255\24\0\47\155\1\256\1\157"+
+    "\22\0\1\257\61\0\1\260\41\0\1\261\60\0\1\262"+
+    "\40\0\1\263\67\0\1\264\27\0\1\265\55\0\1\266"+
+    "\45\0\1\267\46\0\1\270\66\0\1\271\32\0\1\272"+
+    "\60\0\1\273\46\0\1\274\4\0\1\275\35\0\1\276"+
+    "\60\0\1\277\37\0\1\300\51\0\1\301\46\0\1\302"+
+    "\52\0\1\303\55\0\1\304\42\0\1\305\50\0\1\306"+
+    "\2\0\1\307\44\0\1\310\52\0\1\311\51\0\1\312"+
+    "\50\0\1\313\56\0\1\314\41\0\1\315\57\0\1\316"+
+    "\1\317\36\0\1\320\1\0\1\321\46\0\1\322\54\0"+
+    "\1\323\45\0\1\324\47\0\1\325\57\0\1\326\54\0"+
+    "\1\327\51\0\1\330\45\0\1\331\50\0\1\332\47\0"+
+    "\1\333\44\0\1\334\57\0\1\335\53\0\1\336\35\0"+
+    "\1\337\54\0\1\340\44\0\1\341\51\0\1\342\60\0"+
+    "\1\343\37\0\1\344\54\0\1\345\44\0\1\346\7\0"+
+    "\1\347\40\0\1\350\50\0\1\351\50\0\1\352\70\0"+
+    "\1\353\43\0\1\354\40\0\1\355\52\0\1\356\41\0"+
+    "\1\357\53\0\1\360\60\0\1\361\37\0\1\362\45\0"+
+    "\1\363\50\0\1\364\53\0\1\365\47\0\1\366\51\0"+
+    "\1\367\62\0\1\370\36\0\1\371\65\0\1\372\42\0"+
+    "\1\373\40\0\1\374\57\0\1\375\43\0\1\376\57\0"+
+    "\1\377\53\0\1\u0100\34\0\1\u0101\52\0\1\u0102\50\0"+
+    "\1\u0103\44\0\1\u0104\57\0\1\u0105\51\0\1\u0106\53\0"+
+    "\1\u0107\36\0\1\u0108\14\0\1\u0109\36\0\1\u010a\56\0"+
+    "\1\u010b\51\0\1\u010c\37\0\1\u010d\61\0\1\u010e\51\0"+
+    "\1\u010f\37\0\1\u0110\51\0\1\u0111\63\0\1\u0112\51\0"+
+    "\1\u0113\34\0\1\u0114\55\0\1\u0115\42\0\1\u0116\61\0"+
+    "\1\u0117\37\0\1\u0118\56\0\1\u0119\53\0\1\u011a\43\0"+
+    "\1\u011b\41\0\1\u011c\64\0\1\u011d\35\0\1\u011e\72\0"+
+    "\1\u011f\44\0\1\u0120\46\0\1\u0121\33\0\1\u0122\72\0"+
+    "\1\u0123\40\0\1\u0124\36\0\1\u0125\52\0\1\u0126\52\0"+
+    "\1\u0127\46\0\1\u0128\55\0\1\u0129\63\0\1\u012a\50\0"+
+    "\1\u012b\40\0\1\u012c\42\0\1\u012d\55\0\1\u012e\51\0"+
+    "\1\u012f\40\0\1\u0130\61\0\1\u0131\40\0\1\u0132\54\0"+
+    "\1\u0133\54\0\1\u0134\53\0\1\u0135\45\0\1\u0136\50\0"+
+    "\1\u0137\41\0\1\u0138\46\0\1\u0139\52\0\1\u013a\45\0"+
+    "\1\u013b\27\0";
 
   private static int [] zzUnpackTrans() {
     int [] result = new int[8897];
@@ -469,7 +466,7 @@ class Lexer implements java_cup.runtime.Scanner {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
-    "\2\0\2\11\6\1\7\11\43\1\1\11\1\1\10\11"+
+    "\2\0\2\11\6\1\6\11\43\1\1\11\1\1\10\11"+
     "\1\1\25\0\1\11\3\0\1\11\1\1\1\11\2\0"+
     "\1\11\20\0\1\11\1\0\10\1\4\11\4\0\1\11"+
     "\13\0\1\11\14\0\1\11\7\0\1\11\11\0\1\11"+
@@ -484,7 +481,7 @@ class Lexer implements java_cup.runtime.Scanner {
     "\1\0\1\11";
 
   private static int [] zzUnpackAttribute() {
-    int [] result = new int[316];
+    int [] result = new int[315];
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -957,373 +954,369 @@ class Lexer implements java_cup.runtime.Scanner {
             { throw new Error("Illegal character <"+
                                                     yytext()+">");
             }
-          case 93: break;
+          case 92: break;
           case 2: 
-            { return symbol(DartOperators.LINEABREAK.value, yytext());
+            { 
+            }
+          case 93: break;
+          case 3: 
+            { return symbol(sym.POW, yytext());
             }
           case 94: break;
-          case 3: 
-            { return symbol(DartOperators.POW.value, yytext());
+          case 4: 
+            { return symbol(sym.EQ, yytext());
             }
           case 95: break;
-          case 4: 
-            { return symbol(DartOperators.EQ.value, yytext());
+          case 5: 
+            { return symbol(sym.PLUS, yytext());
             }
           case 96: break;
-          case 5: 
-            { return symbol(DartOperators.PLUS.value, yytext());
+          case 6: 
+            { return symbol(sym.MINUS, yytext());
             }
           case 97: break;
-          case 6: 
-            { return symbol(DartOperators.MINUS.value, yytext());
+          case 7: 
+            { return symbol(sym.RESID, yytext());
             }
           case 98: break;
-          case 7: 
-            { return symbol(DartOperators.RESID.value, yytext());
+          case 8: 
+            { return symbol(sym.OPENCODE, yytext());
             }
           case 99: break;
-          case 8: 
-            { return symbol(DartOperators.SPACE.value, yytext());
+          case 9: 
+            { return symbol(sym.CLOSECODE, yytext());
             }
           case 100: break;
-          case 9: 
-            { return symbol(DartOperators.OPENCODE.value, yytext());
+          case 10: 
+            { return symbol(sym.OPENING_PARENT, yytext());
             }
           case 101: break;
-          case 10: 
-            { return symbol(DartOperators.CLOSECODE.value, yytext());
+          case 11: 
+            { return symbol(sym.CLOSING_PARENT, yytext());
             }
           case 102: break;
-          case 11: 
-            { return symbol(DartOperators.OPENPARENT.value, yytext());
+          case 12: 
+            { return symbol(sym.SEMICOLON, yytext());
             }
           case 103: break;
-          case 12: 
-            { return symbol(DartOperators.CLOSEPARENT.value, yytext());
-            }
-          case 104: break;
           case 13: 
-            { return symbol(DartOperators.SEMICOLON.value, yytext());
-            }
-          case 105: break;
-          case 14: 
             { string.append( yytext() );
             }
-          case 106: break;
-          case 15: 
+          case 104: break;
+          case 14: 
             { yybegin(YYINITIAL); 
-                                   return symbol(DartOperators.STRINGLITERAL.value, 
+                                   return symbol(sym.STRINGLITERAL, 
                                    string.toString());
             }
-          case 107: break;
-          case 16: 
+          case 105: break;
+          case 15: 
             { string.append('\\');
             }
-          case 108: break;
+          case 106: break;
+          case 16: 
+            { return symbol(sym.POWPOW, yytext());
+            }
+          case 107: break;
           case 17: 
-            { return symbol(DartOperators.POWPOW.value, yytext());
+            { return symbol(sym.EQEQ, yytext());
+            }
+          case 108: break;
+          case 18: 
+            { return symbol(sym.PLUSEQ, yytext());
             }
           case 109: break;
-          case 18: 
-            { return symbol(DartOperators.EQEQ.value, yytext());
+          case 19: 
+            { return symbol(sym.PLUSPLUS, yytext());
             }
           case 110: break;
-          case 19: 
-            { return symbol(DartOperators.PLUSEQ.value, yytext());
+          case 20: 
+            { return symbol(sym.MINUSEQ, yytext());
             }
           case 111: break;
-          case 20: 
-            { return symbol(DartOperators.PLUSPLUS.value, yytext());
+          case 21: 
+            { return symbol(sym.MINUSMINUS, yytext());
             }
           case 112: break;
-          case 21: 
-            { return symbol(DartOperators.MINUSEQ.value, yytext());
+          case 22: 
+            { return symbol(sym.AND, yytext());
             }
           case 113: break;
-          case 22: 
-            { return symbol(DartOperators.MINUSMINUS.value, yytext());
+          case 23: 
+            { return symbol(sym.OR, yytext());
             }
           case 114: break;
-          case 23: 
-            { return symbol(DartOperators.AND.value, yytext());
+          case 24: 
+            { return symbol(sym.AS, yytext());
             }
           case 115: break;
-          case 24: 
-            { return symbol(DartOperators.OR.value, yytext());
+          case 25: 
+            { return symbol(sym.ON, yytext());
             }
           case 116: break;
-          case 25: 
-            { return symbol(DartBuiltInWords.AS.value, yytext());
+          case 26: 
+            { return symbol(sym.IS, yytext());
             }
           case 117: break;
-          case 26: 
-            { return symbol(DartReservedWords.ON.value, yytext());
+          case 27: 
+            { return symbol(sym.IN, yytext());
             }
           case 118: break;
-          case 27: 
-            { return symbol(DartReservedWords.IS.value, yytext());
+          case 28: 
+            { return symbol(sym.IF, yytext());
             }
           case 119: break;
-          case 28: 
-            { return symbol(DartReservedWords.IN.value, yytext());
+          case 29: 
+            { return symbol(sym.DO, yytext());
             }
           case 120: break;
-          case 29: 
-            { return symbol(DartReservedWords.IF.value, yytext());
+          case 30: 
+            { return symbol(sym.STRINGLITERAL, yytext());
             }
           case 121: break;
-          case 30: 
-            { return symbol(DartReservedWords.DO.value, yytext());
-            }
-          case 122: break;
           case 31: 
-            { return symbol(DartOperators.STRINGLITERAL.value, yytext());
-            }
-          case 123: break;
-          case 32: 
             { string.append('\r');
             }
-          case 124: break;
-          case 33: 
+          case 122: break;
+          case 32: 
             { string.append('\t');
             }
-          case 125: break;
-          case 34: 
+          case 123: break;
+          case 33: 
             { string.append('\n');
             }
-          case 126: break;
-          case 35: 
+          case 124: break;
+          case 34: 
             { string.append('\"');
             }
-          case 127: break;
+          case 125: break;
+          case 35: 
+            { return symbol(sym.SET, yytext());
+            }
+          case 126: break;
           case 36: 
-            { return symbol(DartBuiltInWords.SET.value, yytext());
+            { return symbol(sym.TRY, yytext());
+            }
+          case 127: break;
+          case 37: 
+            { return symbol(sym.NEW, yytext());
             }
           case 128: break;
-          case 37: 
-            { return symbol(DartReservedWords.TRY.value, yytext());
+          case 38: 
+            { return symbol(sym.FOR, yytext());
             }
           case 129: break;
-          case 38: 
-            { return symbol(DartReservedWords.NEW.value, yytext());
+          case 39: 
+            { return symbol(sym.VAR, yytext());
             }
           case 130: break;
-          case 39: 
-            { return symbol(DartReservedWords.FOR.value, yytext());
+          case 40: 
+            { return symbol(sym.GET, yytext());
             }
           case 131: break;
-          case 40: 
-            { return symbol(DartReservedWords.VAR.value, yytext());
+          case 41: 
+            { return symbol(sym.SHOW, yytext());
             }
           case 132: break;
-          case 41: 
-            { return symbol(DartBuiltInWords.GET.value, yytext());
+          case 42: 
+            { return symbol(sym.SYNC, yytext());
             }
           case 133: break;
-          case 42: 
-            { return symbol(DartReservedWords.SHOW.value, yytext());
+          case 43: 
+            { return symbol(sym.ELSE, yytext());
             }
           case 134: break;
-          case 43: 
-            { return symbol(DartReservedWords.SYNC.value, yytext());
+          case 44: 
+            { return symbol(sym.ENUM, yytext());
             }
           case 135: break;
-          case 44: 
-            { return symbol(DartReservedWords.ELSE.value, yytext());
+          case 45: 
+            { return symbol(sym.TRUE, yytext());
             }
           case 136: break;
-          case 45: 
-            { return symbol(DartReservedWords.ENUM.value, yytext());
+          case 46: 
+            { return symbol(sym.THIS, yytext());
             }
           case 137: break;
-          case 46: 
-            { return symbol(DartReservedWords.TRUE.value, yytext());
+          case 47: 
+            { return symbol(sym.CASE, yytext());
             }
           case 138: break;
-          case 47: 
-            { return symbol(DartReservedWords.THIS.value, yytext());
+          case 48: 
+            { return symbol(sym.HIDE, yytext());
             }
           case 139: break;
-          case 48: 
-            { return symbol(DartReservedWords.CASE.value, yytext());
+          case 49: 
+            { return symbol(sym.NULL, yytext());
             }
           case 140: break;
-          case 49: 
-            { return symbol(DartReservedWords.HIDE.value, yytext());
+          case 50: 
+            { return symbol(sym.MAIN, yytext());
             }
           case 141: break;
-          case 50: 
-            { return symbol(DartReservedWords.NULL.value, yytext());
+          case 51: 
+            { return symbol(sym.WITH, yytext());
             }
           case 142: break;
-          case 51: 
-            { return symbol(DartReservedWords.MAIN.value, yytext());
+          case 52: 
+            { return symbol(sym.PART, yytext());
             }
           case 143: break;
-          case 52: 
-            { return symbol(DartReservedWords.WITH.value, yytext());
+          case 53: 
+            { return symbol(sym.VOID, yytext());
             }
           case 144: break;
-          case 53: 
-            { return symbol(DartBuiltInWords.PART.value, yytext());
+          case 54: 
+            { return symbol(sym.ASYNC, yytext());
             }
           case 145: break;
-          case 54: 
-            { return symbol(DartReservedWords.VOID.value, yytext());
+          case 55: 
+            { return symbol(sym.AWAIT, yytext());
             }
           case 146: break;
-          case 55: 
-            { return symbol(DartReservedWords.ASYNC.value, yytext());
+          case 56: 
+            { return symbol(sym.SUPER, yytext());
             }
           case 147: break;
-          case 56: 
-            { return symbol(DartReservedWords.AWAIT.value, yytext());
+          case 57: 
+            { return symbol(sym.THROW, yytext());
             }
           case 148: break;
-          case 57: 
-            { return symbol(DartReservedWords.SUPER.value, yytext());
+          case 58: 
+            { return symbol(sym.BREAK, yytext());
             }
           case 149: break;
-          case 58: 
-            { return symbol(DartReservedWords.THROW.value, yytext());
+          case 59: 
+            { return symbol(sym.CATCH, yytext());
             }
           case 150: break;
-          case 59: 
-            { return symbol(DartReservedWords.BREAK.value, yytext());
+          case 60: 
+            { return symbol(sym.CLASS, yytext());
             }
           case 151: break;
-          case 60: 
-            { return symbol(DartReservedWords.CATCH.value, yytext());
+          case 61: 
+            { return symbol(sym.CONST, yytext());
             }
           case 152: break;
-          case 61: 
-            { return symbol(DartReservedWords.CLASS.value, yytext());
+          case 62: 
+            { return symbol(sym.FALSE, yytext());
             }
           case 153: break;
-          case 62: 
-            { return symbol(DartReservedWords.CONST.value, yytext());
+          case 63: 
+            { return symbol(sym.FINAL, yytext());
             }
           case 154: break;
-          case 63: 
-            { return symbol(DartReservedWords.FALSE.value, yytext());
+          case 64: 
+            { return symbol(sym.MIXIN, yytext());
             }
           case 155: break;
-          case 64: 
-            { return symbol(DartReservedWords.FINAL.value, yytext());
+          case 65: 
+            { return symbol(sym.YIELD, yytext());
             }
           case 156: break;
-          case 65: 
-            { return symbol(DartBuiltInWords.MIXIN.value, yytext());
+          case 66: 
+            { return symbol(sym.WHILE, yytext());
             }
           case 157: break;
-          case 66: 
-            { return symbol(DartReservedWords.YIELD.value, yytext());
+          case 67: 
+            { return symbol(sym.PRINT, yytext());
             }
           case 158: break;
-          case 67: 
-            { return symbol(DartReservedWords.WHILE.value, yytext());
+          case 68: 
+            { return symbol(sym.ASSERT, yytext());
             }
           case 159: break;
-          case 68: 
-            { return symbol(DartReservedWords.PRINT.value, yytext());
+          case 69: 
+            { return symbol(sym.STATIC, yytext());
             }
           case 160: break;
-          case 69: 
-            { return symbol(DartReservedWords.ASSERT.value, yytext());
+          case 70: 
+            { return symbol(sym.SWITCH, yytext());
             }
           case 161: break;
-          case 70: 
-            { return symbol(DartBuiltInWords.STATIC.value, yytext());
+          case 71: 
+            { return symbol(sym.EXPORT, yytext());
             }
           case 162: break;
-          case 71: 
-            { return symbol(DartReservedWords.SWITCH.value, yytext());
+          case 72: 
+            { return symbol(sym.RETURN, yytext());
             }
           case 163: break;
-          case 72: 
-            { return symbol(DartBuiltInWords.EXPORT.value, yytext());
+          case 73: 
+            { return symbol(sym.IMPORT, yytext());
             }
           case 164: break;
-          case 73: 
-            { return symbol(DartReservedWords.RETURN.value, yytext());
+          case 74: 
+            { return symbol(sym.EXTENDS, yytext());
             }
           case 165: break;
-          case 74: 
-            { return symbol(DartBuiltInWords.IMPORT.value, yytext());
+          case 75: 
+            { return symbol(sym.RETHROW, yytext());
             }
           case 166: break;
-          case 75: 
-            { return symbol(DartReservedWords.EXTENDS.value, yytext());
+          case 76: 
+            { return symbol(sym.TYPEDEF, yytext());
             }
           case 167: break;
-          case 76: 
-            { return symbol(DartReservedWords.RETHROW.value, yytext());
+          case 77: 
+            { return symbol(sym.LIBRARY, yytext());
             }
           case 168: break;
-          case 77: 
-            { return symbol(DartBuiltInWords.TYPEDEF.value, yytext());
+          case 78: 
+            { return symbol(sym.DEFAULT, yytext());
             }
           case 169: break;
-          case 78: 
-            { return symbol(DartBuiltInWords.LIBRARY.value, yytext());
+          case 79: 
+            { return symbol(sym.DYNAMIC, yytext());
             }
           case 170: break;
-          case 79: 
-            { return symbol(DartReservedWords.DEFAULT.value, yytext());
+          case 80: 
+            { return symbol(sym.FACTORY, yytext());
             }
           case 171: break;
-          case 80: 
-            { return symbol(DartBuiltInWords.DYNAMIC.value, yytext());
+          case 81: 
+            { return symbol(sym.FINALLY, yytext());
             }
           case 172: break;
-          case 81: 
-            { return symbol(DartBuiltInWords.FACTORY.value, yytext());
+          case 82: 
+            { return symbol(sym.ABSTRACT, yytext());
             }
           case 173: break;
-          case 82: 
-            { return symbol(DartReservedWords.FINALLY.value, yytext());
+          case 83: 
+            { return symbol(sym.EXTERNAL, yytext());
             }
           case 174: break;
-          case 83: 
-            { return symbol(DartBuiltInWords.ABSTRACT.value, yytext());
+          case 84: 
+            { return symbol(sym.CONTINUE, yytext());
             }
           case 175: break;
-          case 84: 
-            { return symbol(DartBuiltInWords.EXTERNAL.value, yytext());
+          case 85: 
+            { return symbol(sym.OPERATOR, yytext());
             }
           case 176: break;
-          case 85: 
-            { return symbol(DartReservedWords.CONTINUE.value, yytext());
+          case 86: 
+            { return symbol(sym.DEFERRED, yytext());
             }
           case 177: break;
-          case 86: 
-            { return symbol(DartBuiltInWords.OPERATOR.value, yytext());
+          case 87: 
+            { return symbol(sym.FUNCTION, yytext());
             }
           case 178: break;
-          case 87: 
-            { return symbol(DartBuiltInWords.DEFERRED.value, yytext());
+          case 88: 
+            { return symbol(sym.EXTENSION, yytext());
             }
           case 179: break;
-          case 88: 
-            { return symbol(DartBuiltInWords.FUNCTION.value, yytext());
+          case 89: 
+            { return symbol(sym.COVARIANT, yytext());
             }
           case 180: break;
-          case 89: 
-            { return symbol(DartBuiltInWords.EXTENSION.value, yytext());
+          case 90: 
+            { return symbol(sym.INTERFACE, yytext());
             }
           case 181: break;
-          case 90: 
-            { return symbol(DartBuiltInWords.COVARIANT.value, yytext());
+          case 91: 
+            { return symbol(sym.IMPLEMENTS, yytext());
             }
           case 182: break;
-          case 91: 
-            { return symbol(DartBuiltInWords.INTERFACE.value, yytext());
-            }
-          case 183: break;
-          case 92: 
-            { return symbol(DartBuiltInWords.IMPLEMENTS.value, yytext());
-            }
-          case 184: break;
           default:
             zzScanError(ZZ_NO_MATCH);
         }

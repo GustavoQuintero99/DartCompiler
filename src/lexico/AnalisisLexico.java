@@ -4,9 +4,13 @@
  */
 package lexico;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.awt.TextArea;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.Reader;
+import java.io.InputStreamReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -22,21 +26,31 @@ public class AnalisisLexico {
     private static Lexer lexer;
            
     public void runLexer(File file, TextArea txt) throws IOException {
-
+        txt.setText("");
+        
+        FileInputStream inFile = new FileInputStream(file);
+        Reader lector = new BufferedReader(new InputStreamReader(inFile));
+        parser s = new parser(new Lexer(lector));      
         try {
-            file = new File("src/lexico/codigo.txt");
             br = new BufferedReader(new FileReader(file));
             lexer = new Lexer(br);
             while (true) {
             
                 Symbol token = lexer.next_token();
                 txt.append("Valor: " + token.toString()+ " contenido: '"+ token.value + "' status: " + token.parse_state + "\n");
-                if (lexer.next_token().toString().equals("#0")){
+                if (token.toString().equals("#0")){
                     break;
                 }
             }
         } catch (FileNotFoundException ex) {
         }
-
+        
+        try{
+            s.debug_parse();
+            System.out.println("Analisis realizado correctamente");
+        } catch (Exception e){
+            int sym = s.error_sym();
+            System.out.println("Error de sintaxis. Simbolo: " + sym);
+        }
     }
 }
