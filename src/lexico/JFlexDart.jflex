@@ -28,20 +28,17 @@ import lexico.sym;
 
 LineTerminator = \r|\n|\r\n
 InputCharacter = [^\r\n]
-WhiteSpace     = {LineTerminator} | [ \t\f]
 
 /* comments */
-Comment = {TraditionalComment} | {EndOfLineComment} | {DocumentationComment}
-
-TraditionalComment   = "/*" [^*] ~"*/" | "/*" "*"+ "/"
-// Comment can be the last line of the file, without line terminator.
-EndOfLineComment     = "//" {InputCharacter}* {LineTerminator}?
-DocumentationComment = "/**" {CommentContent} "*"+ "/"
-CommentContent       = ( [^*] | \*+ [^/*] )*
-
-Identifier = [:jletter:] [:jletterdigit:]*
-
-DecIntegerLiteral = 0 | [1-9][0-9]*
+    Comment = {TraditionalComment} | {EndOfLineComment} | {DocumentationComment}
+    TraditionalComment   = "/*" [^*] ~"*/" | "/*" "*"+ "/"
+    // Comment can be the last line of the file, without line terminator.
+    EndOfLineComment     = "//"
+    DocumentationComment = "/**" {CommentContent} "*"+ "/"
+    CommentContent       = ( [^*] | \*+ [^/*] )*
+    Identifier = [:jletter:] [:jletterdigit:]*
+    WhiteSpace = [\n\r\t ] 
+    DecIntegerLiteral = 0 | [1-9][0-9]*
 
 %state STRING
 
@@ -51,6 +48,7 @@ DecIntegerLiteral = 0 | [1-9][0-9]*
 "="                            { return symbol(sym.EQ, yytext()); }
 "=="                           { return symbol(sym.EQEQ, yytext()); }
 "+"                            { return symbol(sym.PLUS, yytext()); }
+"/"                            { return symbol(sym.DIVISION, yytext()); }
 "++"                           { return symbol(sym.PLUSPLUS, yytext()); }
 "-"                            { return symbol(sym.MINUS, yytext()); }
 "--"                           { return symbol(sym.MINUSMINUS, yytext()); }
@@ -68,6 +66,16 @@ DecIntegerLiteral = 0 | [1-9][0-9]*
 ")"                            { return symbol(sym.CLOSING_PARENT, yytext()); }
 "\n"                           { }
 ";"                            { return symbol(sym.SEMICOLON, yytext());}
+
+/* keywords */
+("var"|"int"|"double")         {return symbol(sym.DATA_TYPE,yytext()); }
+( "\"" | "'" )                 {return symbol(sym.QUOTES,yytext()); }
+"var"                          {return symbol(sym.VAR, yytext()); }
+"int"                          {return symbol(sym.INT, yytext()); }
+"double"                       {return symbol(sym.DOUBLE, yytext()); }
+"bool"                         {return symbol(sym.BOOL, yytext()); }
+"String"                       {return symbol(sym.STRING, yytext()); }
+
 
 <YYINITIAL> "assert"           {return symbol(sym.ASSERT, yytext()); }
 <YYINITIAL> "break"            {return symbol(sym.BREAK, yytext()); }
@@ -132,21 +140,33 @@ DecIntegerLiteral = 0 | [1-9][0-9]*
 <YYINITIAL> "set"              {return symbol(sym.SET, yytext()); }
 <YYINITIAL> "static"           {return symbol(sym.STATIC, yytext()); }
 <YYINITIAL> "typedef"          {return symbol(sym.TYPEDEF, yytext()); }
-<YYINITIAL> "typedef"          {return symbol(sym.EVAL_ARITMETICA, yytext()); }
-<YYINITIAL> (\"(\\.|[^\"]+)*\") {return symbol(sym.STRINGLITERAL, yytext()); }
 
-<STRING> {
-  \"                             { yybegin(YYINITIAL); 
-                                   return symbol(sym.STRINGLITERAL, 
-                                   string.toString()); }
-  [^\n\r\"\\]+                   { string.append( yytext() ); }
-  \\t                            { string.append('\t'); }
-  \\n                            { string.append('\n'); }
 
-  \\r                            { string.append('\r'); }
-  \\\"                           { string.append('\"'); }
-  \\                             { string.append('\\'); }
-}
+    /* Comments */
+    {Comment}               { return symbol(sym.COMMENT, yytext()); }
+
+    /* WhiteSpace */ 
+    {WhiteSpace}            { return symbol(sym.WHITESPACE, yytext()); }
+    
+     /* Identificador */
+    {Identifier}    { return symbol(sym.IDENTIFIER, yytext());  }
+
+    /* Numeros */
+    {DecIntegerLiteral}    { return symbol(sym.DECINTEGERLITERAL, yytext()); }
+
+    <STRING> {
+      \"                             { yybegin(YYINITIAL); 
+                                       return symbol(sym.STRINGLITERAL, 
+                                       string.toString()); }
+      [^\n\r\"\\]+                   { string.append( yytext() ); }
+      
+      \\t                            { string.append('\t'); }
+      \\n                            { string.append('\n'); }
+
+      \\r                            { string.append('\r'); }
+      \\\"                           { string.append('\"'); }
+      \\                             { string.append('\\'); }
+    }
 
 /* error fallback */
 [^]                              { throw new Error("Illegal character <"+

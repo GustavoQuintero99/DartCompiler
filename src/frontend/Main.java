@@ -55,7 +55,7 @@ public class Main extends javax.swing.JFrame {
         jMenuItem8 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-        setTitle("Compilador Gustavo Quintero");
+        setTitle("Compilaneitor");
         setPreferredSize(new java.awt.Dimension(800, 800));
         setSize(new java.awt.Dimension(800, 800));
         addWindowListener(new java.awt.event.WindowAdapter() {
