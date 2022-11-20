@@ -62,8 +62,8 @@ DecIntegerLiteral = 0 | [1-9][0-9]*
 "+="                           { return symbol(sym.PLUSEQ, yytext()); }
 "%"                            { return symbol(sym.RESID, yytext()); }
 " "                            { }
-"{"                            { return symbol(sym.OPENCODE, yytext()); }
-"}"                            { return symbol(sym.CLOSECODE, yytext()); }
+"{"                            { return symbol(sym.OPENING_KEY, yytext()); }
+"}"                            { return symbol(sym.CLOSING_KEY, yytext()); }
 "("                            { return symbol(sym.OPENING_PARENT, yytext()); }
 ")"                            { return symbol(sym.CLOSING_PARENT, yytext()); }
 "\n"                           { }

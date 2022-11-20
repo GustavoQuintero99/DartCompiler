@@ -980,11 +980,11 @@ class Lexer implements java_cup.runtime.Scanner {
             }
           case 98: break;
           case 8: 
-            { return symbol(sym.OPENCODE, yytext());
+            { return symbol(sym.OPENING_KEY, yytext());
             }
           case 99: break;
           case 9: 
-            { return symbol(sym.CLOSECODE, yytext());
+            { return symbol(sym.CLOSING_KEY, yytext());
             }
           case 100: break;
           case 10: 
