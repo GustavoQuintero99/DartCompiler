@@ -45,6 +45,9 @@ InputCharacter = [^\r\n]
 %%
 
 /* ops */
+("\<"|"\>"|"\<="|"\>="|"!="
+|"!"|"==" )                         { return symbol(sym.RELATIONAL_OPERATOR, yytext());}
+
 "="                            { return symbol(sym.EQ, yytext()); }
 "=="                           { return symbol(sym.EQEQ, yytext()); }
 "+"                            { return symbol(sym.PLUS, yytext()); }
@@ -66,6 +69,13 @@ InputCharacter = [^\r\n]
 ")"                            { return symbol(sym.CLOSING_PARENT, yytext()); }
 "\n"                           { }
 ";"                            { return symbol(sym.SEMICOLON, yytext());}
+"\["                           { return symbol(sym.OPENING_BRACKET, yytext()); }
+"\]"                           { return symbol(sym.CLOSING_BRACKET, yytext()); }
+","                            { return symbol(sym.COMMA, yytext()); }
+
+"true"|"false"                   { return symbol(sym.BOOLEAN_OPERATOR, yytext()); }
+
+
 
 /* keywords */
 ("var"|"int"|"double")         {return symbol(sym.DATA_TYPE,yytext()); }
@@ -146,7 +156,7 @@ InputCharacter = [^\r\n]
     {Comment}               { return symbol(sym.COMMENT, yytext()); }
 
     /* WhiteSpace */ 
-    {WhiteSpace}            { return symbol(sym.WHITESPACE, yytext()); }
+    {WhiteSpace}            { }
     
      /* Identificador */
     {Identifier}    { return symbol(sym.IDENTIFIER, yytext());  }
