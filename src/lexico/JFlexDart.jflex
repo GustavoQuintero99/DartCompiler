@@ -26,19 +26,20 @@ import lexico.sym;
   }
 %}
 
-LineTerminator = \r|\n|\r\n
-InputCharacter = [^\r\n]
+ LineTerminator = \r|\n|\r\n
+ InputCharacter = [^\r\n]
+ WhiteSpace = {LineTerminator} | [ \t\f]
+ /* comments */
+ Comment = {TraditionalComment} | {EndOfLineComment} | {DocumentationComment}
+ TraditionalComment = "/*" [^*] ~"*/" | "/*" "*"+ "/"
+ EndOfLineComment = "//" {InputCharacter}* {LineTerminator}
+ DocumentationComment = "/**" {CommentContent} "*"+ "/"
+ CommentContent = ( [^*] | \*+ [^/*] )*
+ Identifier = [:jletter:] [:jletterdigit:]*
+ DecIntegerLiteral = 0 | [1-9][0-9]*
+ WhiteSpace = [\n\r\t ]
+ 
 
-/* comments */
-    Comment = {TraditionalComment} | {EndOfLineComment} | {DocumentationComment}
-    TraditionalComment   = "/*" [^*] ~"*/" | "/*" "*"+ "/"
-    // Comment can be the last line of the file, without line terminator.
-    EndOfLineComment     = "//"
-    DocumentationComment = "/**" {CommentContent} "*"+ "/"
-    CommentContent       = ( [^*] | \*+ [^/*] )*
-    Identifier = [:jletter:] [:jletterdigit:]*
-    WhiteSpace = [\n\r\t ] 
-    DecIntegerLiteral = 0 | [1-9][0-9]*
 
 %state STRING
 
@@ -46,7 +47,7 @@ InputCharacter = [^\r\n]
 
 /* ops */
 ("\<"|"\>"|"\<="|"\>="|"!="
-|"!"|"==" )                         { return symbol(sym.RELATIONAL_OPERATOR, yytext());}
+|"!"|"==" )                    { return symbol(sym.RELATIONAL_OPERATOR, yytext());}
 
 "="                            { return symbol(sym.EQ, yytext()); }
 "=="                           { return symbol(sym.EQEQ, yytext()); }
@@ -67,7 +68,6 @@ InputCharacter = [^\r\n]
 "}"                            { return symbol(sym.CLOSING_KEY, yytext()); }
 "("                            { return symbol(sym.OPENING_PARENT, yytext()); }
 ")"                            { return symbol(sym.CLOSING_PARENT, yytext()); }
-"\n"                           { }
 ";"                            { return symbol(sym.SEMICOLON, yytext());}
 "\["                           { return symbol(sym.OPENING_BRACKET, yytext()); }
 "\]"                           { return symbol(sym.CLOSING_BRACKET, yytext()); }
@@ -78,13 +78,12 @@ InputCharacter = [^\r\n]
 
 
 /* keywords */
-("var"|"int"|"double")         {return symbol(sym.DATA_TYPE,yytext()); }
-( "\"" | "'" )                 {return symbol(sym.QUOTES,yytext()); }
-"var"                          {return symbol(sym.VAR, yytext()); }
-"int"                          {return symbol(sym.INT, yytext()); }
-"double"                       {return symbol(sym.DOUBLE, yytext()); }
-"bool"                         {return symbol(sym.BOOL, yytext()); }
-"String"                       {return symbol(sym.STRING, yytext()); }
+<YYINITIAL>("var"|"int"|"double")         {return symbol(sym.DATA_TYPE,yytext()); }
+<YYINITIAL>"var"                          {return symbol(sym.VAR, yytext()); }
+<YYINITIAL>"int"                          {return symbol(sym.INT, yytext()); }
+<YYINITIAL>"double"                       {return symbol(sym.DOUBLE, yytext()); }
+<YYINITIAL>"bool"                         {return symbol(sym.BOOL, yytext()); }
+<YYINITIAL>"String"                       {return symbol(sym.STRING, yytext()); }
 
 
 <YYINITIAL> "assert"           {return symbol(sym.ASSERT, yytext()); }
@@ -104,6 +103,8 @@ InputCharacter = [^\r\n]
 <YYINITIAL> "finally"          {return symbol(sym.FINALLY, yytext()); }
 <YYINITIAL> "for"              {return symbol(sym.FOR, yytext()); }
 <YYINITIAL> "if"               {return symbol(sym.IF, yytext()); }
+<YYINITIAL> "else if"               {return symbol(sym.IF, yytext()); }
+
 <YYINITIAL> "in"               {return symbol(sym.IN, yytext()); }
 <YYINITIAL> "is"               {return symbol(sym.IS, yytext()); }
 <YYINITIAL> "new"              {return symbol(sym.NEW, yytext()); }
@@ -151,31 +152,36 @@ InputCharacter = [^\r\n]
 <YYINITIAL> "static"           {return symbol(sym.STATIC, yytext()); }
 <YYINITIAL> "typedef"          {return symbol(sym.TYPEDEF, yytext()); }
 
-
+ <YYINITIAL> {
     /* Comments */
-    {Comment}               { return symbol(sym.COMMENT, yytext()); }
+    {Comment}               { /* ignore */}
 
     /* WhiteSpace */ 
-    {WhiteSpace}            { }
+    {WhiteSpace}            { /*ignore*/}
     
      /* Identificador */
     {Identifier}    { return symbol(sym.IDENTIFIER, yytext());  }
 
     /* Numeros */
     {DecIntegerLiteral}    { return symbol(sym.DECINTEGERLITERAL, yytext()); }
+    \"                             { string.setLength(0); yybegin(STRING); }
 
+
+ }
     <STRING> {
       \"                             { yybegin(YYINITIAL); 
                                        return symbol(sym.STRINGLITERAL, 
                                        string.toString()); }
       [^\n\r\"\\]+                   { string.append( yytext() ); }
-      
       \\t                            { string.append('\t'); }
       \\n                            { string.append('\n'); }
 
       \\r                            { string.append('\r'); }
       \\\"                           { string.append('\"'); }
       \\                             { string.append('\\'); }
+      \'                             { string.append('\''); }
+      
+
     }
 
 /* error fallback */
