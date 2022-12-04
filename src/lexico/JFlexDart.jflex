@@ -69,6 +69,8 @@ import lexico.sym;
 "("                            { return symbol(sym.OPENING_PARENT, yytext()); }
 ")"                            { return symbol(sym.CLOSING_PARENT, yytext()); }
 ";"                            { return symbol(sym.SEMICOLON, yytext());}
+":"                            { return symbol(sym.COLON, yytext());}
+"."                            { return symbol(sym.DOT, yytext());}
 "\["                           { return symbol(sym.OPENING_BRACKET, yytext()); }
 "\]"                           { return symbol(sym.CLOSING_BRACKET, yytext()); }
 ","                            { return symbol(sym.COMMA, yytext()); }
