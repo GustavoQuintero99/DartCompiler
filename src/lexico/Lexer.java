@@ -1076,7 +1076,7 @@ class Lexer implements java_cup.runtime.Scanner {
             }
           case 105: break;
           case 4: 
-            { return symbol(sym.POW, yychar, yyline, yytext());
+            { return symbol(sym.MULTIPLICATION, yychar, yyline, yytext());
             }
           case 106: break;
           case 5: 

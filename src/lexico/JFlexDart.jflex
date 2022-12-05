@@ -54,12 +54,8 @@ import lexico.sym;
 
 "="                            { return symbol(sym.EQ, yychar, yyline, yytext());}
 "=="                           { return symbol(sym.EQEQ, yychar, yyline, yytext());}
-"+"                            { return symbol(sym.PLUS, yychar, yyline, yytext());}
-"/"                            { return symbol(sym.DIVISION, yychar, yyline, yytext());}
 "++"                           { return symbol(sym.PLUSPLUS, yychar, yyline, yytext());}
-"-"                            { return symbol(sym.MINUS, yychar, yyline, yytext());}
 "--"                           { return symbol(sym.MINUSMINUS, yychar, yyline, yytext());}
-"*"                            { return symbol(sym.POW, yychar, yyline, yytext());}
 "**"                           { return symbol(sym.POWPOW, yychar, yyline, yytext());}
 "&&"                           { return symbol(sym.AND, yychar, yyline, yytext());}
 "||"                           { return symbol(sym.OR, yychar, yyline, yytext());}
@@ -77,6 +73,11 @@ import lexico.sym;
 "\["                           { return symbol(sym.OPENING_BRACKET, yychar, yyline, yytext());}
 "\]"                           { return symbol(sym.CLOSING_BRACKET, yychar, yyline, yytext());}
 ","                            { return symbol(sym.COMMA, yychar, yyline, yytext());}
+
+"-"                            { return symbol(sym.MINUS, yychar, yyline, yytext());}
+"+"                            { return symbol(sym.PLUS, yychar, yyline, yytext());}
+"/"                            { return symbol(sym.DIVISION, yychar, yyline, yytext());}
+"*"                           { return symbol(sym.MULTIPLICATION, yychar, yyline, yytext());}
 
 "true"|"false"                   { return symbol(sym.BOOLEAN_OPERATOR, yychar, yyline, yytext());}
 

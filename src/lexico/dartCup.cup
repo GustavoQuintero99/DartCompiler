@@ -46,7 +46,8 @@ terminal Integer NUMBER; // integer numbers
 
 // non terminal keys
 non terminal initialize, expr_list, icrements_decrements, assignation, type_case, case, switch_statement, chain, statement, declaration, for_declaration, if, if_else, else_if, else,chain_string, print_,string_Literal,
-    while, do_while, for, boolean_statement, for_statement, foreach, foreach_statement, switch, log_aritmetica, return_type, print_function;
+    while, do_while, for, boolean_statement, for_statement, foreach, foreach_statement, switch, log_aritmetica, return_type, print_function, operations, operations_basics,
+    operations_parentesis, operations_parentesis_statement ;
 
 non terminal Integer expr;
 
@@ -86,10 +87,39 @@ statement ::=
     statement foreach |
     foreach |
     statement print_function|
-    print_function
+    print_function|
+    statement operations|
+    operations
 
 ;
 
+operations ::=
+    DECINTEGERLITERAL operations_basics operations|
+    IDENTIFIER operations_basics operations|
+    operations_parentesis operations_basics operations|
+    DECINTEGERLITERAL SEMICOLON|
+    IDENTIFIER SEMICOLON|
+    operations_parentesis SEMICOLON
+;
+
+operations_parentesis ::=
+    OPENING_PARENT operations_parentesis_statement CLOSING_PARENT
+    ;
+
+operations_parentesis_statement ::=
+    DECINTEGERLITERAL operations_basics operations_parentesis_statement|
+    IDENTIFIER operations_basics operations_parentesis_statement|
+    DECINTEGERLITERAL|
+    IDENTIFIER|
+    operations_parentesis
+    ;
+
+operations_basics ::=
+    PLUS|
+    MINUS|
+    MULTIPLICATION|
+    DIVISION
+    ;
 
 return_type ::=
     VOID |
