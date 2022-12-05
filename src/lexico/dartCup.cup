@@ -5,21 +5,32 @@ import java_cup.runtime.Symbol;
 parser code
 {:
     private Symbol s;
-    
-    public void syntaxis_error(Symbol s){
-        this.s=s;
-        System.out.println("compiler has detected a syntax error at line " + s.left 
-            + " column " + s.right);
+    public String message= " ";
+        public Symbol getS(){
+        return this.s;
+    }
+
+    public void unrecovered_syntax_error(Symbol s){
+        s.left+=1;
+        s.right+=1;
+        this.message = "Error sintáctico en la línea " + s.left + ", columna " + s.right + " se encontró: < " + s.value + " >, mientras se esperaba otro simbolo. ";
+        System.out.println(message); 
+        System.out.println(recovery_message());
+    }
+
+    public String recovery_message(){
+        return this.message;
+    }
+
+    public void remove_message(){
+        this.message = " ";
     }
     
-    public Symbol getS(){
-        return s;
-    }
 :};
 
 
 // terminal keys
-terminal DOT,COLON,LINE, DATA_TYPE, STRING, IF, ELSE, DO,COMMENT,WHITESPACE,IDENTIFIER,DECINTEGERLITERAL,
+terminal SEMI,TIMES, UMINUS, LPAREN, RPAREN, DOT,COLON,LINE, DATA_TYPE, STRING, IF, ELSE, DO,COMMENT,WHITESPACE,IDENTIFIER,DECINTEGERLITERAL,
     EQ, SUM, SUBSTRACTION, MULTIPLICATION, DIVISION, LOGICAL_OPERATOR, RELATIONAL_OPERATOR,
     INCREASE_OPERATOR, BOOLEAN_OPERATOR, OPENING_PARENT, CLOSING_PARENT,
     OPENING_KEY, CLOSING_KEY, OPENING_SQUARE_BRACKET, CLOSING_SQUARE_BRACKET,ERROR, 
@@ -31,9 +42,18 @@ terminal DOT,COLON,LINE, DATA_TYPE, STRING, IF, ELSE, DO,COMMENT,WHITESPACE,IDEN
     DEFERRED, FUNCTION, EXTENSION, COVARIANT, IMPLEMENTS, OP_ARITMETICA, CLASS_NAME, RESID, INT, BOOL, FLOAT, DOUBLE, LESS, GREATER, LESSEQ, GREATEREQ, 
     DIFF, NOT, OPENING_BRACKET, CLOSING_BRACKET, COMMA, ELSE_IF;
 
+terminal Integer NUMBER; // integer numbers
+
 // non terminal keys
-non terminal initialize, icrements_decrements, assignation, type_case, case, switch_statement, chain, statement, declaration, for_declaration, if, if_else, else_if, else,chain_string, print_,string_Literal,
+non terminal initialize, expr_list, icrements_decrements, assignation, type_case, case, switch_statement, chain, statement, declaration, for_declaration, if, if_else, else_if, else,chain_string, print_,string_Literal,
     while, do_while, for, boolean_statement, for_statement, foreach, foreach_statement, switch, log_aritmetica, return_type, print_function;
+
+non terminal Integer expr;
+
+/* Precedences */
+precedence left PLUS, MINUS;
+precedence left TIMES;
+precedence left UMINUS;
 
 // start
 start with initialize;
@@ -259,4 +279,19 @@ type_case ::=
     TRUE|
     FALSE
 ;
+
+expr_list ::=
+    expr_list expr:e SEMI         {: System.out.println(e);:}|
+    expr:e SEMI                   {: System.out.println(e);:}
+;
+
+expr      ::= expr:e1 PLUS  expr:e2         {: RESULT = e1+e2;       :}
+             | expr:e1 MINUS expr:e2        {: RESULT = e1-e2;       :}
+             | expr:e1 TIMES expr:e2        {: RESULT = e1*e2;       :}
+             | MINUS expr:e                 {: RESULT = -e;          :}
+  	     %prec UMINUS
+       | LPAREN expr:e RPAREN	         {: RESULT = e;           :}
+       | NUMBER:n	                     {: RESULT = n;           :}
+             ;
+
 
